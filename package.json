@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "tsx src/scripts/seed.ts"
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "seed": "tsx src/scripts/seed.ts",
+    "build:analyze": "ANALYZE=true next build",
+    "build:prod": "npm run type-check && npm run lint && npm run build",
+    "clean": "rm -rf .next out"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

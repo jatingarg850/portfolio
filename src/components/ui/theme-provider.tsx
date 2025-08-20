@@ -26,7 +26,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       try {
         const parsed = JSON.parse(saved);
         setTheme(prev => ({ ...prev, ...parsed }));
-      } catch (e) {
+      } catch {
   console.warn('Failed to parse saved theme');
       }
     }

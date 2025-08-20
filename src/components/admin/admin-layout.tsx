@@ -10,7 +10,6 @@ import {
   FolderOpen,
   Users,
   Calendar,
-  Settings,
   LogOut,
   Menu,
   X,

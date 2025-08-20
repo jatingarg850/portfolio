@@ -1,7 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { signIn, getSession } from 'next-auth/react';
+
+interface ExtendedSession {
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    role: string;
+    avatar?: string;
+  };
+}
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -19,14 +29,14 @@ const loginSchema = z.object({
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
-export default function LoginPage() {
+function LoginPageContent() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
   
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/admin';
+  const callbackUrl = searchParams?.get('callbackUrl') || '/admin';
 
   const {
     register,
@@ -51,14 +61,14 @@ export default function LoginPage() {
         setError(result.error);
       } else if (result?.ok) {
         // Check if user is authenticated and has admin role
-        const session = await getSession();
+        const session = await getSession() as ExtendedSession | null;
         if (session?.user?.role === 'admin' || session?.user?.role === 'super-admin') {
           router.push(callbackUrl);
         } else {
           setError('Access denied. Admin privileges required.');
         }
       }
-    } catch (error) {
+    } catch {
   setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsLoading(false);
@@ -211,5 +221,13 @@ export default function LoginPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
+      <LoginPageContent />
+    </Suspense>
   );
 }

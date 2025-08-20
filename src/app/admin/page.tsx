@@ -8,7 +8,6 @@ import {
   Calendar, 
   MessageSquare, 
   Clock,
-  Eye,
   ArrowUpRight
 } from 'lucide-react';
 import { ProtectedRoute } from '@/components/admin/protected-route';

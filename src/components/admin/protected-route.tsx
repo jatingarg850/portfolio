@@ -5,39 +5,52 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+interface ExtendedUser {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  avatar?: string;
+}
+
+interface ExtendedSession {
+  user: ExtendedUser;
+}
+
 interface ProtectedRouteProps {
   children: React.ReactNode;
   requiredRole?: 'admin' | 'super-admin';
   fallback?: React.ReactNode;
 }
 
-export function ProtectedRoute({ 
-  children, 
-  requiredRole = 'admin', 
-  fallback 
+export function ProtectedRoute({
+  children,
+  requiredRole = 'admin',
+  fallback
 }: ProtectedRouteProps) {
   const { data: session, status } = useSession();
+  const extendedSession = session as ExtendedSession | null;
   const router = useRouter();
 
   useEffect(() => {
     if (status === 'loading') return; // Still loading
 
-    if (!session) {
+    if (!extendedSession) {
       router.push('/admin/login');
       return;
     }
 
     // Check role permissions
-    if (requiredRole === 'super-admin' && session.user?.role !== 'super-admin') {
+    if (requiredRole === 'super-admin' && extendedSession.user?.role !== 'super-admin') {
       router.push('/admin/unauthorized');
       return;
     }
 
-    if (!session.user?.role || (session.user.role !== 'admin' && session.user.role !== 'super-admin')) {
+    if (!extendedSession.user?.role || (extendedSession.user.role !== 'admin' && extendedSession.user.role !== 'super-admin')) {
       router.push('/admin/unauthorized');
       return;
     }
-  }, [session, status, router, requiredRole]);
+  }, [extendedSession, status, router, requiredRole]);
 
   // Loading state
   if (status === 'loading') {
@@ -56,16 +69,16 @@ export function ProtectedRoute({
   }
 
   // Not authenticated
-  if (!session) {
+  if (!extendedSession) {
     return null; // Will redirect in useEffect
   }
 
   // Insufficient permissions
-  if (requiredRole === 'super-admin' && session.user?.role !== 'super-admin') {
+  if (requiredRole === 'super-admin' && extendedSession.user?.role !== 'super-admin') {
     return null; // Will redirect in useEffect
   }
 
-  if (!session.user?.role || (session.user.role !== 'admin' && session.user.role !== 'super-admin')) {
+  if (!extendedSession.user?.role || (extendedSession.user.role !== 'admin' && extendedSession.user.role !== 'super-admin')) {
     return null; // Will redirect in useEffect
   }
 

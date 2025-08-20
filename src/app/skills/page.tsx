@@ -1,5 +1,4 @@
 import SkillsGrid from './SkillsGrid';
-import { motion } from 'framer-motion';
 
 async function getSkills() {
   const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
@@ -50,7 +49,7 @@ export default async function SkillsPage() {
               'Assests Management',
               'IOT automation',
               'Help & Support'
-            ].map((skill, index) => (
+            ].map((skill) => (
               <div
                 key={skill}
                 className="p-4 bg-muted/50 rounded-lg text-sm font-medium"

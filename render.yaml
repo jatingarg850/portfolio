@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: skillverse
+    env: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: skillverse-db
+          property: connectionString
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: NEXTAUTH_URL
+        fromService:
+          type: web
+          name: skillverse
+          property: host
+    autoDeploy: true
+    
+databases:
+  - name: skillverse-db
+    databaseName: portfolio
+    user: skillverse

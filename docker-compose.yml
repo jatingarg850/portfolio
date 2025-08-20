@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/portfolio
+      - NEXTAUTH_SECRET=your-super-secret-key-here
+      - NEXTAUTH_URL=http://localhost:3000
+    depends_on:
+      - mongo
+    networks:
+      - skillverse-network
+
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=portfolio
+    networks:
+      - skillverse-network
+
+volumes:
+  mongo-data:
+
+networks:
+  skillverse-network:
+    driver: bridge

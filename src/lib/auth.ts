@@ -1,13 +1,12 @@
 import { getServerSession } from 'next-auth/next';
 import { NextRequest, NextResponse } from 'next/server';
 import { redirect } from 'next/navigation';
-import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import connectDB from '@/lib/mongodb';
 import User from '@/lib/models/User';
 
-const authOptions: NextAuthOptions = {
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -69,24 +68,26 @@ const authOptions: NextAuthOptions = {
     })
   ],
   session: {
-    strategy: 'jwt',
+    strategy: 'jwt' as const,
     maxAge: 24 * 60 * 60,
   },
   jwt: {
     maxAge: 24 * 60 * 60,
   },
   callbacks: {
-    async jwt({ token, user }) {
+    // @ts-expect-error - NextAuth callback types are complex and vary by version
+    jwt: async ({ token, user }) => {
       if (user) {
         token.role = user.role;
         token.id = user.id;
       }
       return token;
     },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id as string;
-        session.user.role = token.role as string;
+    // @ts-expect-error - NextAuth callback types are complex and vary by version
+    session: async ({ session, token }) => {
+      if (token && session.user) {
+        session.user.id = token.id;
+        session.user.role = token.role;
       }
       return session;
     },
@@ -124,7 +125,8 @@ export async function requireAdminAuth() {
     redirect('/admin/login');
   }
   
-  if (session.user.role !== 'admin' && session.user.role !== 'super-admin') {
+  const user = session.user;
+  if (user.role !== 'admin' && user.role !== 'super-admin') {
     throw new Error('Insufficient permissions');
   }
   
@@ -144,7 +146,7 @@ export function withAuth(handler: (req: NextRequest, user: unknown) => Promise<R
       }
       
       return handler(req, session.user);
-    } catch (error) {
+    } catch {
       return NextResponse.json(
         { error: 'Authentication failed' },
         { status: 401 }
@@ -165,7 +167,8 @@ export function withAdminAuth(handler: (req: NextRequest, user: unknown, context
         );
       }
       
-      if (session.user.role !== 'admin' && session.user.role !== 'super-admin') {
+      const user = session.user as { role: string };
+      if (user.role !== 'admin' && user.role !== 'super-admin') {
         return NextResponse.json(
           { error: 'Admin access required' },
           { status: 403 }

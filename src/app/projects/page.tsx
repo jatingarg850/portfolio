@@ -1,9 +1,4 @@
 
-
-import { motion } from 'framer-motion';
-
-
-
 import ProjectsGrid from './ProjectsGrid';
 import { Rocket } from 'lucide-react';
 import Link from 'next/link';

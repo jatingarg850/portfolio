@@ -1,5 +1,6 @@
 export interface Project {
   id: string;
+  _id?: string;
   title: string;
   slug: string;
   tagline: string;
@@ -51,6 +52,7 @@ export interface Testimonial {
 
 export interface Skill {
   id: string;
+  _id?: string;
   name: string;
   category: string;
   proficiency: number;

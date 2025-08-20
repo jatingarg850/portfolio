@@ -10,17 +10,21 @@ export default function AdminProfilePage() {
     bio: "",
     avatar: ""
   });
-  const [editing, setEditing] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Save profile info to backend
-    setEditing(false);
-    alert("Profile updated!");
+    setIsSubmitting(true);
+    try {
+      // TODO: Save profile info to backend
+      alert("Profile updated!");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -71,7 +75,9 @@ export default function AdminProfilePage() {
                 className="w-full px-3 py-2 border rounded-lg"
               />
             </div>
-            <button type="submit" className="btn-primary">Save Changes</button>
+            <button type="submit" disabled={isSubmitting} className="btn-primary">
+              {isSubmitting ? 'Saving...' : 'Save Changes'}
+            </button>
           </form>
         </div>
       </AdminLayout>

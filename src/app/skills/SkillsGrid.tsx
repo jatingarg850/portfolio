@@ -1,9 +1,10 @@
 'use client';
 
-import { Star, ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Skill } from '@/lib/types';
 
-export default function SkillsGrid({ skills }: { skills: any[] }) {
+export default function SkillsGrid({ skills }: { skills: Skill[] }) {
   const skillCategories = ['Frontend', 'Backend', 'Design', 'Tools'];
   return (
     <div className="space-y-12">

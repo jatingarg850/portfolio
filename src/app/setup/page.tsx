@@ -20,7 +20,7 @@ export default function SetupPage() {
       
       const result = await response.json();
       setSeedResult(result);
-    } catch (error) {
+    } catch {
       setSeedResult({
         success: false,
         message: 'Failed to seed database. Please check your MongoDB connection.'

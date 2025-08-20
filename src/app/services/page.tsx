@@ -216,7 +216,7 @@ export default function ServicesPage() {
               { step: '03', title: 'Build', desc: 'Development with regular progress updates' },
               { step: '04', title: 'Ship', desc: 'Testing, deployment, and launch' },
               { step: '05', title: 'Iterate', desc: 'Ongoing support and improvements' }
-            ].map((item, index) => (
+            ].map((item) => (
               <div key={item.step} className="text-center">
                 <div className="w-16 h-16 rounded-full bg-accent/10 text-accent flex items-center justify-center text-lg font-bold mx-auto mb-4">
                   {item.step}
