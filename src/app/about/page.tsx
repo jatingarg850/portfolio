@@ -118,7 +118,7 @@ export default function AboutPage() {
 
             {/* Values */}
             <motion.div
-                      description: 'Expanded into backend development and cloud technologies.'
+                {/* ...existing code... */}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
@@ -257,7 +257,7 @@ export default function AboutPage() {
               </Link>
             </motion.div>
           </div>
-        </div>
+  </div>
 
         {/* Final CTA */}
         <motion.div
@@ -270,7 +270,7 @@ export default function AboutPage() {
             Ready to Launch Something Amazing?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            Every great product starts with a conversation. Let's discuss your vision and make it reality.
+            Every great product starts with a conversation. Let&apos;s discuss your vision and make it reality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary">
@@ -281,7 +281,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </motion.div>
-      </div>
-    </div>
+  </div>
+  </div>
   );
 }
