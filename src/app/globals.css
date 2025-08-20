@@ -1,26 +1,111 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --accent-hue: 240;
+    --accent-sat: 70%;
+    --accent-light: 50%;
+  }
+  
+  body {
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm;
+  }
+  
+  .metric-badge {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 border border-blue-200 dark:border-blue-800;
+  }
+  
+  .orbit-canvas {
+    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  }
+  
+  .orbit-glow {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+  }
+  
+  .planet-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+}
+
+@layer utilities {
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+  }
+  
+  @keyframes cosmic-drift {
+    0% { transform: translateX(0px) translateY(0px); }
+    25% { transform: translateX(10px) translateY(-5px); }
+    50% { transform: translateX(-5px) translateY(-10px); }
+    75% { transform: translateX(-10px) translateY(5px); }
+    100% { transform: translateX(0px) translateY(0px); }
+  }
+  
+  .star {
+    animation: twinkle 2s infinite;
+  }
+  
+  .planet-orbit {
+    animation: orbit 20s linear infinite;
+  }
+  
+  .cosmic-drift {
+    animation: cosmic-drift 8s ease-in-out infinite;
+  }
+  
+  .planet-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+}/* Addition
+al utility classes */
+.bg-muted {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.text-muted-foreground {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.text-accent {
+  @apply text-blue-600 dark:text-blue-400;
 }
