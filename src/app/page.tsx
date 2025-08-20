@@ -33,10 +33,12 @@ export default function HomePage() {
   }, []);
 
   const handleProjectClick = (project: Project) => {
-    // In a real app, this would navigate to the project detail page
-    console.log('Navigate to project:', project.slug);
-    // For now, we'll just show an alert
-    alert(`Navigate to project: ${project.title}`);
+    // Navigate to the project's live link
+    if (project.links?.live) {
+      window.open(project.links.live, '_blank');
+    } else {
+      alert('Live link not available for this project.');
+    }
   };
 
   const features = [

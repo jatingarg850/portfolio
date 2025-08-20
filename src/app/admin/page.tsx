@@ -22,7 +22,6 @@ interface DashboardStats {
   newContacts: number;
   scheduledCalls: number;
   completedCalls: number;
-  portfolioViews: number;
   conversionRate: number;
 }
 
@@ -43,7 +42,7 @@ export default function AdminDashboard() {
     newContacts: 0,
     scheduledCalls: 0,
     completedCalls: 0,
-    portfolioViews: 0,
+  // portfolioViews: 0,
     conversionRate: 0
   });
   
@@ -81,7 +80,6 @@ export default function AdminDashboard() {
           newContacts: contacts.filter((c: { status: string }) => c.status === 'new').length,
           scheduledCalls: calls.filter((c: { status: string }) => c.status === 'scheduled').length,
           completedCalls: calls.filter((c: { status: string }) => c.status === 'completed').length,
-          portfolioViews: Math.floor(Math.random() * 1000) + 500, // Mock data
           conversionRate: contacts.length > 0 ? Math.round((calls.length / contacts.length) * 100) : 0
         });
 
@@ -140,12 +138,12 @@ export default function AdminDashboard() {
       href: '/admin/calls'
     },
     {
-      title: 'Portfolio Views',
-      value: stats.portfolioViews,
-      change: `${stats.conversionRate}% conversion`,
-      icon: Eye,
-      color: 'orange',
-      href: '/admin/analytics'
+      title: 'Update Profile',
+      value: '',
+      change: 'Edit your info',
+      icon: ArrowUpRight,
+      color: 'blue',
+      href: '/admin/profile'
     }
   ];
 
@@ -315,25 +313,26 @@ export default function AdminDashboard() {
                     <ArrowUpRight className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                   </Link>
                   
-                  <Link
-                    href="/admin/contacts"
-                    className="flex items-center justify-between w-full p-3 text-left bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-lg transition-colors"
-                  >
-                    <span className="text-sm font-medium text-green-900 dark:text-green-300">
-                      Review Contacts
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-green-600 dark:text-green-400" />
-                  </Link>
+                    <Link href="/admin/skills" className="flex items-center justify-between w-full p-3 text-left bg-yellow-50 dark:bg-yellow-900/20 hover:bg-yellow-100 dark:hover:bg-yellow-900/30 rounded-lg transition-colors">
+                      <span className="text-sm font-medium text-yellow-900 dark:text-yellow-300">
+                        Add Skill
+                      </span>
+                      <ArrowUpRight className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
+                    </Link>
                   
-                  <Link
-                    href="/admin/profile"
-                    className="flex items-center justify-between w-full p-3 text-left bg-purple-50 dark:bg-purple-900/20 hover:bg-purple-100 dark:hover:bg-purple-900/30 rounded-lg transition-colors"
-                  >
-                    <span className="text-sm font-medium text-purple-900 dark:text-purple-300">
-                      Update Profile
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                  </Link>
+                    <Link href="/admin/contacts" className="flex items-center justify-between w-full p-3 text-left bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-lg transition-colors">
+                      <span className="text-sm font-medium text-green-900 dark:text-green-300">
+                        Review Contacts
+                      </span>
+                      <ArrowUpRight className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    </Link>
+                  
+                    <Link href="/admin/profile" className="flex items-center justify-between w-full p-3 text-left bg-purple-50 dark:bg-purple-900/20 hover:bg-purple-100 dark:hover:bg-purple-900/30 rounded-lg transition-colors">
+                      <span className="text-sm font-medium text-purple-900 dark:text-purple-300">
+                        Update Profile
+                      </span>
+                      <ArrowUpRight className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    </Link>
                 </div>
               </div>
             </div>

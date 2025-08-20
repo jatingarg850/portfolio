@@ -18,7 +18,8 @@ import {
   BarChart3,
   User,
   Bell,
-  ChevronDown
+  ChevronDown,
+  Star
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -34,7 +35,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   const navigation = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
     { name: 'Projects', href: '/admin/projects', icon: FolderOpen },
-    { name: 'Skills', href: '/admin/skills', icon: Settings },
+    { name: 'Skills', href: '/admin/skills', icon: Star },
     { name: 'Contacts', href: '/admin/contacts', icon: Users },
     { name: 'Discovery Calls', href: '/admin/calls', icon: Calendar },
     { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },

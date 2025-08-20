@@ -2,6 +2,7 @@ import 'dotenv/config';
 import connectDB from './mongodb';
 import Project from './models/Project';
 import User from './models/User';
+import Skill from './models/Skill';
 import bcrypt from 'bcryptjs';
 
 const seedData = async () => {
@@ -15,14 +16,15 @@ const seedData = async () => {
 
   const deletedProjects = await Project.deleteMany({});
   const deletedUsers = await User.deleteMany({});
-  console.log(`Deleted ${deletedProjects.deletedCount} projects, ${deletedUsers.deletedCount} users.`);
+  const deletedSkills = await Skill.deleteMany({});
+  console.log(`Deleted ${deletedProjects.deletedCount} projects, ${deletedUsers.deletedCount} users, ${deletedSkills.deletedCount} skills.`);
 
     // Create admin user profile with hashed password
     const hashedPassword = await bcrypt.hash('Jatingarg850@', 12);
 
     const user = new User({
       name: 'Jatin Garg',
-      email: 'jatingarg850@gmail.com',
+      email: 'jatingarg8501@gmail.com',
       password: hashedPassword,
       title: 'Full-Stack Developer & UI/UX Designer',
       bio: 'Passionate full-stack developer with 6+ years of experience building scalable web applications and beautiful user interfaces. I specialize in React, Next.js, and modern web technologies.',
@@ -56,7 +58,61 @@ const seedData = async () => {
 
 
   const savedUser = await user.save();
-  console.log('Inserted user:', savedUser.email);
+    console.log('Inserted user:', savedUser.email);
+
+    // Create skills
+    const skills = [
+      {
+        name: 'React',
+        category: 'Frontend',
+        proficiency: 95,
+        proof: {
+          repos: ['https://github.com/username/react-projects'],
+          projects: ['1', '2', '3']
+        },
+        position: { x: 0, y: 0 },
+        featured: true,
+        order: 1
+      },
+      {
+        name: 'Next.js',
+        category: 'Frontend',
+        proficiency: 90,
+        proof: {
+          repos: ['https://github.com/username/nextjs-apps'],
+          projects: ['1']
+        },
+        position: { x: 100, y: 50 },
+        featured: false,
+        order: 2
+      },
+      {
+        name: 'Node.js',
+        category: 'Backend',
+        proficiency: 85,
+        proof: {
+          repos: ['https://github.com/username/node-apis'],
+          projects: ['2']
+        },
+        position: { x: -80, y: 80 },
+        featured: false,
+        order: 3
+      },
+      {
+        name: 'UI/UX Design',
+        category: 'Design',
+        proficiency: 88,
+        proof: {
+          projects: ['3']
+        },
+        position: { x: 120, y: -60 },
+        featured: false,
+        order: 4
+      }
+    ];
+
+    const insertedSkills = await Skill.insertMany(skills);
+    console.log(`Inserted ${insertedSkills.length} skills.`);
 
     // Create projects
     const projects = [

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, Suspense } from 'react';
+import { useState } from 'react';
 import { signIn, getSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -9,6 +9,7 @@ import { Eye, EyeOff, Lock, Mail, AlertCircle, Rocket } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import LoginBackground from './LoginBackground';
 
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -18,11 +19,11 @@ const loginSchema = z.object({
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
-function LoginForm() {
+export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
-
+  
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/admin';
@@ -58,7 +59,7 @@ function LoginForm() {
         }
       }
     } catch (error) {
-      setError('An unexpected error occurred. Please try again.');
+  setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -66,31 +67,8 @@ function LoginForm() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse"></div>
-        {Array.from({ length: 50 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-            }}
-            animate={{
-              opacity: [0.2, 1, 0.2],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+  {/* Background Effects */}
+  <LoginBackground />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -110,7 +88,7 @@ function LoginForm() {
             >
               <Rocket className="w-8 h-8 text-white" />
             </motion.div>
-
+            
             <h1 className="text-2xl font-bold text-white mb-2">
               Welcome to SkillVerse Admin
             </h1>
@@ -233,33 +211,5 @@ function LoginForm() {
         </div>
       </motion.div>
     </div>
-  );
-}
-
-function LoginPageFallback() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
-      <div className="relative w-full max-w-md">
-        <div className="bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 p-8 shadow-2xl">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4">
-              <Rocket className="w-8 h-8 text-white" />
-            </div>
-            <div className="animate-pulse">
-              <div className="h-6 bg-white/20 rounded mb-2"></div>
-              <div className="h-4 bg-white/10 rounded"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default function LoginPage() {
-  return (
-    <Suspense fallback={<LoginPageFallback />}>
-      <LoginForm />
-    </Suspense>
   );
 }

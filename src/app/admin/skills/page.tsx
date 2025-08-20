@@ -117,11 +117,10 @@ export default function AdminSkills() {
       const response = await fetch(`/api/skills/${id}`, {
         method: 'DELETE',
       });
-
-      if (response.ok) {
-        setSkills(skills.filter(s => s._id !== id));
-      } else {
-        alert('Failed to delete skill');
+      await fetchSkills();
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(errorData.error || 'Failed to delete skill');
       }
     } catch (error) {
       console.error('Error deleting skill:', error);
@@ -202,12 +201,16 @@ export default function AdminSkills() {
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Category *
                     </label>
-                    <input
-                      type="text"
+                    <select
                       {...register('category')}
                       className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Frontend"
-                    />
+                    >
+                      <option value="">Select category</option>
+                      <option value="Frontend">Frontend</option>
+                      <option value="Backend">Backend</option>
+                      <option value="Design">Design</option>
+                      <option value="Tools">Tools</option>
+                    </select>
                     {errors.category && (
                       <p className="mt-1 text-sm text-red-600">{errors.category.message}</p>
                     )}
