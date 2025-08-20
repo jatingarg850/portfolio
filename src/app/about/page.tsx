@@ -85,7 +85,7 @@ export default function AboutPage() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             I&apos;m a full-stack developer and designer who believes in building products that make a difference. 
             Here&apos;s my story and what drives me to create exceptional digital experiences.
-        </motion.div>
+  </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
           {/* Main Content */}
