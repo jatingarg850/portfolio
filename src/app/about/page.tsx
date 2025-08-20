@@ -83,47 +83,52 @@ export default function AboutPage() {
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            I&apos;m a full-stack developer and designer who believes in building products that make a difference. 
-            Here&apos;s my story and what drives me to create exceptional digital experiences.
-  </motion.div>
+            I'm a full-stack developer and designer who believes in building products that make a difference. 
+            Here's my story and what drives me to create exceptional digital experiences.
+          </p>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
           {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
             {/* Story */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2 className="font-display text-3xl font-bold mb-6">My Journey</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
                 <p>
-                  That question led me down a rabbit hole of HTML, CSS, and JavaScript that I&apos;m still exploring today.
+                  My journey into the digital universe started with a simple curiosity: how do websites work? 
+                  That question led me down a rabbit hole of HTML, CSS, and JavaScript that I'm still exploring today.
                 </p>
                 <p>
-                  Over the years, I&apos;ve had the privilege of working with startups that became unicorns, 
+                  Over the years, I've had the privilege of working with startups that became unicorns, 
                   enterprises that needed digital transformation, and everything in between. Each project 
                   taught me something new about the intersection of technology, design, and human behavior.
                 </p>
                 <p>
-                  What excites me most is the moment when a user interacts with something I&apos;ve built and 
-                  it just works. That seamless experience, that &quot;aha&quot; moment, that&apos;s what I&apos;m chasing 
+                  What excites me most is the moment when a user interacts with something I've built and 
+                  it just works. That seamless experience, that "aha" moment, that's what I'm chasing 
                   with every line of code and every pixel I push.
                 </p>
                 <p>
                   Today, I help businesses launch bold products that users love and that drive real results. 
-                  Whether it&apos;s a lightning-fast landing page or a complex web application, I bring the same 
+                  Whether it's a lightning-fast landing page or a complex web application, I bring the same 
                   attention to detail and passion for excellence to every mission.
                 </p>
+              </div>
             </motion.div>
 
             {/* Values */}
             <motion.div
-                {/* ...existing code... */}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h2 className="font-display text-3xl font-bold mb-6">What I Believe In</h2>
-                      description: 'Started as a frontend developer, focusing on React and modern web technologies.'
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {values.map((value, index) => (
                   <motion.div
                     key={value.title}
@@ -257,7 +262,7 @@ export default function AboutPage() {
               </Link>
             </motion.div>
           </div>
-  </div>
+        </div>
 
         {/* Final CTA */}
         <motion.div
@@ -270,7 +275,7 @@ export default function AboutPage() {
             Ready to Launch Something Amazing?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            Every great product starts with a conversation. Let&apos;s discuss your vision and make it reality.
+            Every great product starts with a conversation. Let's discuss your vision and make it reality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary">
@@ -281,7 +286,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </motion.div>
-  </div>
-  </div>
+      </div>
+    </div>
   );
 }
