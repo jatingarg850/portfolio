@@ -81,7 +81,7 @@ export default function SchedulePage() {
             Call Scheduled!
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Thank you for scheduling a discovery call. I'll reach out within 12 hours to confirm the details.
+            Thank you for scheduling a discovery call. I&#39;ll reach out within 12 hours to confirm the details.
           </p>
           <Link
             href="/"
@@ -109,7 +109,7 @@ export default function SchedulePage() {
               Schedule Discovery Call
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
-              Let's discuss your project goals and how I can help bring your vision to life.
+              Let&#39;s discuss your project goals and how I can help bring your vision to life.
             </p>
           </div>
         </div>
@@ -316,7 +316,7 @@ export default function SchedulePage() {
 
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-8 border border-blue-200 dark:border-blue-800">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                What We'll Discuss
+                What We&#39;ll Discuss
               </h3>
               <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                 <li className="flex items-start">

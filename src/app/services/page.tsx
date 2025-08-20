@@ -119,7 +119,7 @@ export default function ServicesPage() {
 
         {/* Service Packages */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {services.map((service, index) => (
+            {services.map((service, index) => (
             <motion.div
               key={service.name}
               initial={{ opacity: 0, y: 20 }}
@@ -277,8 +277,8 @@ export default function ServicesPage() {
             Ready to Launch Your Mission?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            Let's discuss your project and find the perfect package for your needs.
-          </p>
+              Let&#39;s discuss your project and find the perfect package for your needs.
+            </p>
           <Link href="/contact" className="btn-primary group">
             Dock Your Brief
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

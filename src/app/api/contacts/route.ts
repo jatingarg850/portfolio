@@ -3,7 +3,7 @@ import connectDB from '@/lib/mongodb';
 import Contact from '@/lib/models/Contact';
 import { withAdminAuth } from '@/lib/auth';
 
-export const GET = withAdminAuth(async (request: NextRequest, user: any) => {
+export const GET = withAdminAuth(async (request: NextRequest) => {
   try {
     await connectDB();
     
@@ -11,7 +11,7 @@ export const GET = withAdminAuth(async (request: NextRequest, user: any) => {
     const status = searchParams.get('status');
     const priority = searchParams.get('priority');
     
-    let query: any = {};
+  const query: Record<string, string> = {};
     
     if (status && status !== 'all') {
       query.status = status;

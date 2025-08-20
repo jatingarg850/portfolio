@@ -83,8 +83,8 @@ export default function AboutPage() {
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            I'm a full-stack developer and designer who believes in building products that make a difference. 
-            Here's my story and what drives me to create exceptional digital experiences.
+            I&apos;m a full-stack developer and designer who believes in building products that make a difference. 
+            Here&apos;s my story and what drives me to create exceptional digital experiences.
           </p>
         </motion.div>
 
@@ -101,21 +101,21 @@ export default function AboutPage() {
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
                 <p>
                   My journey into the digital universe started with a simple curiosity: how do websites work? 
-                  That question led me down a rabbit hole of HTML, CSS, and JavaScript that I'm still exploring today.
+                  That question led me down a rabbit hole of HTML, CSS, and JavaScript that I&apos;m still exploring today.
                 </p>
                 <p>
-                  Over the years, I've had the privilege of working with startups that became unicorns, 
+                  Over the years, I&apos;ve had the privilege of working with startups that became unicorns, 
                   enterprises that needed digital transformation, and everything in between. Each project 
                   taught me something new about the intersection of technology, design, and human behavior.
                 </p>
                 <p>
-                  What excites me most is the moment when a user interacts with something I've built and 
-                  it just works. That seamless experience, that "aha" moment, that's what I'm chasing 
+                  What excites me most is the moment when a user interacts with something I&apos;ve built and 
+                  it just works. That seamless experience, that &quot;aha&quot; moment, that&apos;s what I&apos;m chasing 
                   with every line of code and every pixel I push.
                 </p>
                 <p>
                   Today, I help businesses launch bold products that users love and that drive real results. 
-                  Whether it's a lightning-fast landing page or a complex web application, I bring the same 
+                  Whether it&apos;s a lightning-fast landing page or a complex web application, I bring the same 
                   attention to detail and passion for excellence to every mission.
                 </p>
               </div>
@@ -253,9 +253,9 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.9 }}
               className="bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl p-6 border border-accent/20"
             >
-              <h3 className="font-display text-lg font-semibold mb-2">Let's Connect</h3>
+              <h3 className="font-display text-lg font-semibold mb-2">Let&apos;s Connect</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Ready to start your next mission? Let's chat about your project.
+                Ready to start your next mission? Let&apos;s chat about your project.
               </p>
               <Link href="/contact" className="btn-primary w-full text-center text-sm">
                 Dock Your Brief
@@ -275,7 +275,7 @@ export default function AboutPage() {
             Ready to Launch Something Amazing?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            Every great product starts with a conversation. Let's discuss your vision and make it reality.
+            Every great product starts with a conversation. Let&apos;s discuss your vision and make it reality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary">

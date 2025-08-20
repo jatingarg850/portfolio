@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Database, Rocket, CheckCircle, AlertCircle, User, Lock } from 'lucide-react';
 
 export default function SetupPage() {
@@ -182,12 +183,12 @@ export default function SetupPage() {
           className="mt-8 text-center"
         >
           <div className="inline-flex gap-4">
-            <a
-              href="/"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-            >
-              View Portfolio
-            </a>
+              <Link
+                href="/"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                View Portfolio
+              </Link>
             <a
               href="/admin/login"
               className="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors"

@@ -131,12 +131,12 @@ export async function requireAdminAuth() {
   return session.user;
 }
 
-export function withAuth(handler: Function) {
+export function withAuth(handler: (req: NextRequest, user: unknown) => Promise<Response>) {
   return async (req: NextRequest) => {
     try {
       const session = await getSession();
       
-      if (!session?.user) {
+            if (!session?.user) {
         return NextResponse.json(
           { error: 'Authentication required' },
           { status: 401 }
@@ -153,12 +153,12 @@ export function withAuth(handler: Function) {
   };
 }
 
-export function withAdminAuth(handler: Function) {
-  return async (req: NextRequest, context?: any) => {
+export function withAdminAuth(handler: (req: NextRequest, user: unknown, context?: unknown) => Promise<Response>) {
+  return async (req: NextRequest, context?: unknown) => {
     try {
       const session = await getSession();
       
-      if (!session?.user) {
+            if (!session?.user) {
         return NextResponse.json(
           { error: 'Authentication required' },
           { status: 401 }

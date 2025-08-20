@@ -79,7 +79,7 @@ export default function ContactPage() {
             Message Sent!
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Thank you for reaching out. I'll get back to you within 12 hours with next steps for your project.
+            Thank you for reaching out. I&#39;ll get back to you within 12 hours with next steps for your project.
           </p>
           <Link
             href="/"
@@ -107,7 +107,7 @@ export default function ContactPage() {
               Dock Your Brief
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
-              Ready to launch your next mission? Let's discuss your project.
+              Ready to launch your next mission? Let&#39;s discuss your project.
             </p>
           </div>
         </div>
@@ -226,7 +226,7 @@ export default function ContactPage() {
                   <option value="5k-15k">$5,000 - $15,000</option>
                   <option value="15k-30k">$15,000 - $30,000</option>
                   <option value="30k-plus">$30,000+</option>
-                  <option value="discuss">Let's discuss</option>
+                  <option value="discuss">Let&#39;s discuss</option>
                 </select>
               </div>
 

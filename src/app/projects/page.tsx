@@ -65,7 +65,7 @@ export default function ProjectsPage() {
             Ready to Start Your Mission?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            Let's build something amazing together. Every great product starts with a conversation.
+            Let&#39;s build something amazing together. Every great product starts with a conversation.
           </p>
           <Link href={'/contact'}>
           <button className="btn-primary" >

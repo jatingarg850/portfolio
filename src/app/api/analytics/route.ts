@@ -3,7 +3,7 @@ import connectDB from '@/lib/mongodb';
 import Analytics from '@/lib/models/Analytics';
 import { withAdminAuth } from '@/lib/auth';
 
-export const GET = withAdminAuth(async (request: NextRequest) => {
+export const GET = withAdminAuth(async (request: NextRequest): Promise<Response> => {
   try {
     await connectDB();
     
@@ -47,7 +47,7 @@ export const GET = withAdminAuth(async (request: NextRequest) => {
   }
 });
 
-export const POST = withAdminAuth(async (request: NextRequest) => {
+export const POST = withAdminAuth(async (request: NextRequest): Promise<Response> => {
   try {
     await connectDB();
     

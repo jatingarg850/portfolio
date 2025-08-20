@@ -3,11 +3,12 @@ import connectDB from '@/lib/mongodb';
 import Project from '@/lib/models/Project';
 import { withAdminAuth } from '@/lib/auth';
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export const GET = withAdminAuth(async (request: NextRequest, context?: unknown): Promise<Response> => {
+  const id = (context as { params: { id: string } })?.params?.id;
   try {
     await connectDB();
     
-    const { id } = params;
+  // id is already extracted above
     const project = await Project.findById(id);
     
     if (!project) {
@@ -25,14 +26,15 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
       { status: 500 }
     );
   }
-}
+});
 
-export const PUT = withAdminAuth(async (request: NextRequest, user: any, { params }: { params: { id: string } }) => {
+export const PUT = withAdminAuth(async (request: NextRequest, context?: unknown) => {
+  const id = (context as { params: { id: string } })?.params?.id;
   try {
     await connectDB();
     
     const body = await request.json();
-    const { id } = params;
+  // id is already extracted above
     
     const project = await Project.findByIdAndUpdate(id, body, { 
       new: true, 
@@ -56,11 +58,12 @@ export const PUT = withAdminAuth(async (request: NextRequest, user: any, { param
   }
 });
 
-export const DELETE = withAdminAuth(async (request: NextRequest, user: any, { params }: { params: { id: string } }) => {
+export const DELETE = withAdminAuth(async (request: NextRequest, context?: unknown) => {
+  const id = (context as { params: { id: string } })?.params?.id;
   try {
     await connectDB();
     
-    const { id } = params;
+  // id is already extracted above
     
     const project = await Project.findByIdAndDelete(id);
     

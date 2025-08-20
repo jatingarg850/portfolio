@@ -49,11 +49,9 @@ const CATEGORY_CONFIG: Record<CategoryKey, { bg: string; glow: string; ring: str
 const DESKTOP_PLANET_SIZE = 72;
 const DESKTOP_INNER_RADIUS = 170;
 const DESKTOP_RING_GAP = 100;
-const DESKTOP_CANVAS_HEIGHT = 700;
 const MOBILE_PLANET_SIZE = 48;
 const MOBILE_INNER_RADIUS = 90;
 const MOBILE_RING_GAP = 60;
-const MOBILE_CANVAS_HEIGHT = 400;
 const MAX_PER_RING = 8;
 
 export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
@@ -62,7 +60,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
   const PLANET_SIZE = isMobile ? MOBILE_PLANET_SIZE : DESKTOP_PLANET_SIZE;
   const INNER_RADIUS = isMobile ? MOBILE_INNER_RADIUS : DESKTOP_INNER_RADIUS;
   const RING_GAP = isMobile ? MOBILE_RING_GAP : DESKTOP_RING_GAP;
-  const CANVAS_HEIGHT = isMobile ? MOBILE_CANVAS_HEIGHT : DESKTOP_CANVAS_HEIGHT;
+  // const CANVAS_HEIGHT = isMobile ? MOBILE_CANVAS_HEIGHT : DESKTOP_CANVAS_HEIGHT;
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -152,8 +150,8 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
     [positioned]
   );
 
-  const reducedMotion = Boolean(theme && (theme as any).reducedMotion);
-  const accessibleMode = Boolean(theme && (theme as any).accessibleMode);
+  const reducedMotion = Boolean(theme && (theme as { reducedMotion?: boolean }).reducedMotion);
+  const accessibleMode = Boolean(theme && (theme as { accessibleMode?: boolean }).accessibleMode);
 
   const getCatKey = (cat: string): CategoryKey =>
     (

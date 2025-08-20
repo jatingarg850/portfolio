@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category');
     const featured = searchParams.get('featured');
     
-    let query: any = { status: 'active' };
+  const query: Record<string, unknown> = { status: 'active' };
     
     if (category && category !== 'all') {
       query.category = category;

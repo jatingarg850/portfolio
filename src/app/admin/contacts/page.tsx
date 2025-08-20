@@ -7,10 +7,7 @@ import {
   Filter, 
   Mail, 
   Calendar, 
-  User, 
   Building, 
-  Clock,
-  Eye,
   Trash2,
   Star,
   MessageSquare
@@ -71,7 +68,7 @@ export default function ContactsPage() {
       
       if (response.ok) {
         setContacts(contacts.map(contact => 
-          contact._id === id ? { ...contact, status: newStatus as any } : contact
+          contact._id === id ? { ...contact, status: newStatus as Contact['status'] } : contact
         ));
       }
     } catch (error) {

@@ -153,10 +153,10 @@ export default function SkillsPage() {
           className="text-center mt-20 py-16 bg-gradient-to-br from-accent/5 to-accent/10 rounded-2xl border border-accent/20"
         >
           <h2 className="font-display text-3xl font-bold mb-4">
-            Let's Build Something Amazing
+            Let&#39;s Build Something Amazing
           </h2>
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            Ready to leverage these skills for your next project? Let's discuss how we can bring your vision to life.
+            Ready to leverage these skills for your next project? Let&#39;s discuss how we can bring your vision to life.
           </p>
           <button className="btn-primary">
             Start a Project

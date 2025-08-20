@@ -10,12 +10,7 @@ import {
   Save, 
   ArrowLeft, 
   Plus, 
-  X, 
-  Upload,
-  Link as LinkIcon,
-  Calendar,
-  Tag,
-  Star
+  X
 } from 'lucide-react';
 import { ProtectedRoute } from '@/components/admin/protected-route';
 import { AdminLayout } from '@/components/admin/admin-layout';
@@ -53,19 +48,48 @@ const projectSchema = z.object({
   }),
 });
 
-type ProjectFormData = z.infer<typeof projectSchema>;
+interface ProjectFormData {
+  title: string;
+  slug: string;
+  tagline: string;
+  category: 'Web' | 'UI/UX' | 'APIs' | 'Experiments' | 'Android App' | 'iOS App' | 'IoT' | 'Data Engineering';
+  year: number;
+  status: 'active' | 'draft' | 'archived';
+  featured: boolean;
+  metrics: {
+    lcp?: string;
+    conversion?: string;
+    a11y?: number;
+    performance?: number;
+  };
+  stack: string[];
+  links: {
+    live?: string;
+    repo?: string;
+  };
+  caseStudy: {
+    overview: string;
+    problem: string;
+    process: string[];
+    outcome: string;
+  };
+  position: {
+    x: number;
+    y: number;
+    orbit: number;
+  };
+}
 
 export default function NewProject() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const {
-    register,
-    handleSubmit,
-    control,
-    watch,
-    setValue,
-    formState: { errors }
+  register,
+  handleSubmit,
+  control,
+  setValue,
+  formState: { errors }
   } = useForm<ProjectFormData>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
@@ -85,17 +109,17 @@ export default function NewProject() {
     }
   });
 
-  const { fields: stackFields, append: appendStack, remove: removeStack } = useFieldArray({
+  const { fields: stackFields, append: appendStack, remove: removeStack } = useFieldArray<ProjectFormData>({
     control,
-    name: 'stack'
+    name: 'stack' as never
   });
 
-  const { fields: processFields, append: appendProcess, remove: removeProcess } = useFieldArray({
+  const { fields: processFields, append: appendProcess, remove: removeProcess } = useFieldArray<ProjectFormData>({
     control,
-    name: 'caseStudy.process'
+    name: 'caseStudy.process' as never
   });
 
-  const watchTitle = watch('title');
+  // Removed unused watchTitle assignment
 
   // Auto-generate slug from title
   const generateSlug = (title: string) => {

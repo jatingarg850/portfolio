@@ -15,7 +15,6 @@ import {
   Menu,
   X,
   Rocket,
-  MessageSquare,
   BarChart3,
   User,
   Bell,

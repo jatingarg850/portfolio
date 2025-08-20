@@ -10,7 +10,6 @@ import {
   Video, 
   Phone,
   User,
-  Mail,
   Trash2,
   CheckCircle,
   XCircle
@@ -69,7 +68,7 @@ export default function CallsPage() {
       
       if (response.ok) {
         setCalls(calls.map(call => 
-          call._id === id ? { ...call, status: newStatus as any } : call
+          call._id === id ? { ...call, status: newStatus as Call['status'] } : call
         ));
       }
     } catch (error) {

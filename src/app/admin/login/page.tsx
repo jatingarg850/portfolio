@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { signIn, getSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Eye, EyeOff, Lock, Mail, AlertCircle, Rocket } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -17,11 +18,11 @@ const loginSchema = z.object({
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
-export default function LoginPage() {
+function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  
+  const [error, setError] = useState<string>('');
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/admin';
@@ -109,7 +110,7 @@ export default function LoginPage() {
             >
               <Rocket className="w-8 h-8 text-white" />
             </motion.div>
-            
+
             <h1 className="text-2xl font-bold text-white mb-2">
               Welcome to SkillVerse Admin
             </h1>
@@ -223,14 +224,42 @@ export default function LoginPage() {
 
         {/* Back to Portfolio Link */}
         <div className="text-center mt-6">
-          <a
+          <Link
             href="/"
             className="text-gray-300 hover:text-white text-sm transition-colors"
           >
             ← Back to Portfolio
-          </a>
+          </Link>
         </div>
       </motion.div>
     </div>
+  );
+}
+
+function LoginPageFallback() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
+      <div className="relative w-full max-w-md">
+        <div className="bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 p-8 shadow-2xl">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4">
+              <Rocket className="w-8 h-8 text-white" />
+            </div>
+            <div className="animate-pulse">
+              <div className="h-6 bg-white/20 rounded mb-2"></div>
+              <div className="h-4 bg-white/10 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<LoginPageFallback />}>
+      <LoginForm />
+    </Suspense>
   );
 }

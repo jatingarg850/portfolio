@@ -5,15 +5,12 @@ import { motion } from 'framer-motion';
 import { 
   Plus, 
   Search, 
-  Filter, 
   Edit, 
   Trash2, 
-  Eye, 
+  Github,
   Star,
   ExternalLink,
-  Github,
-  Calendar,
-  MoreVertical
+  Eye
 } from 'lucide-react';
 import { ProtectedRoute } from '@/components/admin/protected-route';
 import { AdminLayout } from '@/components/admin/admin-layout';

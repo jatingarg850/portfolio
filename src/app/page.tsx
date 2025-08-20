@@ -83,7 +83,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 dark:text-white"
             >
-              Launch Bold Products.
+                We build for tomorrow&#39;s web.
               <br />
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">One Mission at a Time.</span>
             </motion.h1>
@@ -94,7 +94,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
             >
-              Full‑stack builds with measurable outcomes—speed, UX, and scale. 
+                Full‑stack builds with measurable outcomes—speed, UX, and scale. 
               Explore my universe of projects and dock your brief to start your mission.
             </motion.p>
 
@@ -213,7 +213,7 @@ export default function HomePage() {
               Ready to Launch Your Next Mission?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-              From MVP to scale, I'll help you build products that users love and businesses grow with.
+              From MVP to scale, I&#39;ll help you build products that users love and businesses grow with.
             </p>
             <Link href="/contact" className="btn-primary group text-lg px-8 py-4">
               Start Your Mission

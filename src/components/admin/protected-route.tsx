@@ -4,7 +4,6 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Rocket } from 'lucide-react';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;

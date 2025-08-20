@@ -3,11 +3,12 @@ import connectDB from '@/lib/mongodb';
 import Call from '@/lib/models/Call';
 import { withAdminAuth } from '@/lib/auth';
 
-export const GET = withAdminAuth(async (request: NextRequest, user: any, { params }: { params: { id: string } }) => {
+export const GET = withAdminAuth(async (request: NextRequest, context?: unknown): Promise<Response> => {
+  const id = (context as { params: { id: string } })?.params?.id;
   try {
     await connectDB();
     
-    const call = await Call.findById(params.id);
+  const call = await Call.findById(id);
     
     if (!call) {
       return NextResponse.json(
@@ -26,14 +27,15 @@ export const GET = withAdminAuth(async (request: NextRequest, user: any, { param
   }
 });
 
-export const PATCH = withAdminAuth(async (request: NextRequest, user: any, { params }: { params: { id: string } }) => {
+export const PATCH = withAdminAuth(async (request: NextRequest, context?: unknown): Promise<Response> => {
+  const id = (context as { params: { id: string } })?.params?.id;
   try {
     await connectDB();
     
     const body = await request.json();
     
     const call = await Call.findByIdAndUpdate(
-      params.id,
+      id,
       body,
       { new: true, runValidators: true }
     );
@@ -55,11 +57,12 @@ export const PATCH = withAdminAuth(async (request: NextRequest, user: any, { par
   }
 });
 
-export const DELETE = withAdminAuth(async (request: NextRequest, user: any, { params }: { params: { id: string } }) => {
+export const DELETE = withAdminAuth(async (request: NextRequest, context?: unknown): Promise<Response> => {
+  const id = (context as { params: { id: string } })?.params?.id;
   try {
     await connectDB();
     
-    const call = await Call.findByIdAndDelete(params.id);
+  const call = await Call.findByIdAndDelete(id);
     
     if (!call) {
       return NextResponse.json(

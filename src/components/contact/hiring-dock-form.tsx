@@ -50,8 +50,8 @@ const projectTypes = [
   },
   {
     id: 'Web App',
-    title: 'Web App',
-    description: 'Full-featured web application',
+    description: 'Something unique? Let&#39;s discuss',
+    
     icon: <Rocket className="w-6 h-6" />,
     timeline: '3-8 weeks',
     features: ['User Authentication', 'Database Integration', 'API Development', 'Admin Dashboard']
@@ -83,7 +83,7 @@ const projectTypes = [
   {
     id: 'Custom',
     title: 'Custom Project',
-    description: 'Something unique? Let\'s discuss',
+    description: 'Something unique? Let&#39;s discuss',
     icon: <MessageSquare className="w-6 h-6" />,
     timeline: 'Variable',
     features: ['Custom Requirements', 'Flexible Scope', 'Tailored Solution', 'Ongoing Support']
@@ -403,7 +403,7 @@ export function HiringDockForm() {
               className="space-y-6"
             >
               <div>
-                <h2 className="font-display text-2xl font-bold mb-2">What's your mission budget?</h2>
+                <h2 className="font-display text-2xl font-bold mb-2">What&#39;s your mission budget?</h2>
                 <p className="text-muted-foreground">Select a budget range that works for your project.</p>
               </div>
 

@@ -6,11 +6,8 @@ import {
   Users, 
   FolderOpen, 
   Calendar, 
-  TrendingUp, 
   MessageSquare, 
   Clock,
-  CheckCircle,
-  AlertCircle,
   Eye,
   ArrowUpRight
 } from 'lucide-react';
@@ -79,32 +76,32 @@ export default function AdminDashboard() {
 
         setStats({
           totalProjects: projects.length,
-          activeProjects: projects.filter((p: any) => p.status === 'active').length,
+          activeProjects: projects.filter((p: { status: string }) => p.status === 'active').length,
           totalContacts: contacts.length,
-          newContacts: contacts.filter((c: any) => c.status === 'new').length,
-          scheduledCalls: calls.filter((c: any) => c.status === 'scheduled').length,
-          completedCalls: calls.filter((c: any) => c.status === 'completed').length,
+          newContacts: contacts.filter((c: { status: string }) => c.status === 'new').length,
+          scheduledCalls: calls.filter((c: { status: string }) => c.status === 'scheduled').length,
+          completedCalls: calls.filter((c: { status: string }) => c.status === 'completed').length,
           portfolioViews: Math.floor(Math.random() * 1000) + 500, // Mock data
           conversionRate: contacts.length > 0 ? Math.round((calls.length / contacts.length) * 100) : 0
         });
 
         // Create recent activity from contacts and calls
         const activities: RecentActivity[] = [
-          ...contacts.slice(0, 3).map((contact: any) => ({
+          ...contacts.slice(0, 3).map((contact: { _id: string; name: string; type: string; createdAt: string; status: string }) => ({
             id: contact._id,
             type: 'contact' as const,
             title: `New contact from ${contact.name}`,
             description: `${contact.type} project inquiry`,
             time: new Date(contact.createdAt).toLocaleDateString(),
-            status: contact.status === 'new' ? 'new' as const : 'pending' as const
+            status: contact.status === 'new' ? 'new' : 'pending'
           })),
-          ...calls.slice(0, 2).map((call: any) => ({
+          ...calls.slice(0, 2).map((call: { _id: string; name: string; projectType: string; scheduledDate: string; status: string }) => ({
             id: call._id,
             type: 'call' as const,
             title: `Discovery call with ${call.name}`,
             description: `${call.projectType} discussion`,
             time: new Date(call.scheduledDate).toLocaleDateString(),
-            status: call.status === 'completed' ? 'completed' as const : 'pending' as const
+            status: call.status === 'completed' ? 'completed' : 'pending'
           }))
         ].sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()).slice(0, 5);
 
@@ -162,7 +159,7 @@ export default function AdminDashboard() {
               Welcome back! 👋
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-2">
-              Here's what's happening with your portfolio today.
+              Here&#39;s what&#39;s happening with your portfolio today.
             </p>
           </div>
 

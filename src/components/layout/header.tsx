@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Moon, Sun, Settings, Globe, Menu, X } from 'lucide-react';
 import { useTheme } from '@/components/ui/theme-provider';
@@ -43,7 +44,7 @@ export function Header() {
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
-              <img src="/image.png" alt="Logo" className="w-8 h-8 object-cover rounded-full" />
+                <Image src="/image.png" alt="Logo" width={32} height={32} />
             </motion.div>
             <span className="font-display text-xl font-bold text-gray-900 dark:text-white">SkillVerse</span>
           </Link>
