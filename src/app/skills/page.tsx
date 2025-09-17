@@ -21,10 +21,10 @@ export default async function SkillsPage() {
             Skill Constellations
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            Navigate the <span className="text-accent">Tech Galaxy</span>
+            Our Technical <span className="text-accent">Expertise</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Explore my technical expertise across different domains. Each skill is backed by real projects, 
+            Explore Our technical expertise across different domains. Each skill is backed by real projects, 
             certifications, and years of hands-on experience.
           </p>
         </div>

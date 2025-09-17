@@ -10,8 +10,8 @@ import Link from 'next/link';
 
 export default function HomePage() {
   const [userStats, setUserStats] = useState({
-    projectsCompleted: 50,
-    avgPerformanceScore: 95,
+    projectsCompleted: 20,
+    avgPerformanceScore: 60,
     clientSatisfaction: 100,
     responseTime: '<12h'
   });
@@ -45,17 +45,17 @@ export default function HomePage() {
     {
       icon: <Rocket className="w-6 h-6" />,
       title: "Launch Ready",
-      description: "Production-ready builds with performance optimization and accessibility built-in."
+      description: "Solution built for Scalability, Speed and Global Reach."
     },
     {
       icon: <Zap className="w-6 h-6" />,
       title: "Lightning Fast",
-      description: "Sub-2s load times and 95+ Lighthouse scores across all performance metrics."
+      description: "Ready to launch? We'll reach out within 12 hours to discuss your project and launch it in just 30-60 days."
     },
     {
       icon: <Target className="w-6 h-6" />,
-      title: "Conversion Focused",
-      description: "Data-driven design decisions that increase user engagement and business outcomes."
+      title: "Data Driven",
+      description: "Data-driven design solutions that increase user engagement and business outcomes."
     }
   ];
 
@@ -64,7 +64,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20" />
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
             <motion.div
@@ -75,7 +75,7 @@ export default function HomePage() {
             >
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium mb-6">
                 <Rocket className="w-4 h-4 mr-2" />
-                Welcome to SkillVerse
+                Welcome to DataVidhi
               </span>
             </motion.div>
 
@@ -85,9 +85,9 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 dark:text-white"
             >
-                We build for tomorrow&#39;s web.
+              We build for tomorrow&#39;s web.
               <br />
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">One Mission at a Time.</span>
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Precision in Every Byte. Guided by data, Driven by Vidhi.</span>
             </motion.h1>
 
             <motion.p
@@ -96,8 +96,8 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
             >
-                Full‑stack builds with measurable outcomes—speed, UX, and scale. 
-              Explore my universe of projects and dock your brief to start your mission.
+              Full‑stack builds with measurable outcomes—speed, UX, and scale.
+              Explore our universe of projects and launch your vision to start your mission.
             </motion.p>
 
             <motion.div
@@ -107,11 +107,11 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <Link href="/contact" className="btn-primary group">
-                Dock Your Brief
+                Launch Your Vision
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="/schedule" className="btn-secondary group">
-                Schedule Discovery Call
+                Schedule a Consultation
                 <Calendar className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
@@ -168,7 +168,7 @@ export default function HomePage() {
             className="text-center mb-12"
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Mission Telemetry
+              Mission Metrics
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg">
               Real outcomes from successful launches
@@ -178,7 +178,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { label: 'Projects Launched', value: `${userStats.projectsCompleted}+` },
-              { label: 'Avg. Performance Score', value: `${userStats.avgPerformanceScore}+` },
+              { label: '60 Days Delivery Time', value: `${userStats.avgPerformanceScore}` },
               { label: 'Client Satisfaction', value: `${userStats.clientSatisfaction}%` },
               { label: 'Response Time', value: userStats.responseTime },
             ].map((stat, index) => (
@@ -215,7 +215,7 @@ export default function HomePage() {
               Ready to Launch Your Next Mission?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-              From MVP to scale, I&#39;ll help you build products that users love and businesses grow with.
+              From first launch to full scale, we build products that win users and grow businesses.
             </p>
             <Link href="/contact" className="btn-primary group text-lg px-8 py-4">
               Start Your Mission

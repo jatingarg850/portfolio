@@ -8,7 +8,7 @@ export default function ServicesPage() {
   const services = [
     {
       name: 'Starter',
-      price: '$500 - $2K',
+      price: '$10 - $500',
       duration: '5-7 days',
       description: 'Perfect for landing pages and simple websites',
       icon: <Rocket className="w-6 h-6" />,
@@ -21,7 +21,7 @@ export default function ServicesPage() {
         '1 round of revisions',
         'Basic performance optimization'
       ],
-      cta: 'Launch Starter Mission',
+      cta: 'Start',
       popular: false
     },
     {
@@ -42,7 +42,7 @@ export default function ServicesPage() {
         'Performance optimization',
         '30 days support'
       ],
-      cta: 'Start Growth Mission',
+      cta: 'Start',
       popular: true
     },
     {
@@ -64,7 +64,7 @@ export default function ServicesPage() {
         '90 days support',
         'Team training'
       ],
-      cta: 'Plan Scale Mission',
+      cta: 'Start',
       popular: false
     }
   ];
@@ -112,7 +112,7 @@ export default function ServicesPage() {
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            From quick landing pages to complex web platforms, I have the right mission package 
+            From quick landing pages to complex web platforms, we have the right mission package 
             for your project needs and budget.
           </p>
         </motion.div>
@@ -168,35 +168,7 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Add-on Services */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-20"
-        >
-          <h2 className="font-display text-3xl font-bold text-center mb-12">
-            Mission Add-ons
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {addOns.map((addon, index) => (
-              <motion.div
-                key={addon.name}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 + (index * 0.1) }}
-                className="card p-6 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-display text-lg font-semibold">{addon.name}</h3>
-                  <span className="text-accent font-bold">{addon.price}</span>
-                </div>
-                <p className="text-muted-foreground text-sm">{addon.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
 
         {/* Process */}
         <motion.div
@@ -251,11 +223,11 @@ export default function ServicesPage() {
               },
               {
                 q: 'Do you provide ongoing maintenance?',
-                a: 'Yes, I offer maintenance packages starting at $200/month for updates, security, and minor changes.'
+                a: 'Yes, we offer maintenance packages starting at $200/month for updates, security, and minor changes.'
               },
               {
                 q: 'What if my project doesn\'t fit these packages?',
-                a: 'No problem! I create custom proposals for unique requirements. Just dock your brief and let\'s discuss.'
+                a: 'No problem! we can create custom proposals for unique requirements. Just Book the free call.'
               }
             ].map((faq, index) => (
               <div key={index} className="card p-6">
@@ -280,7 +252,7 @@ export default function ServicesPage() {
               Let&#39;s discuss your project and find the perfect package for your needs.
             </p>
           <Link href="/contact" className="btn-primary group">
-            Dock Your Brief
+            Launch Your Vision
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>

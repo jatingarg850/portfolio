@@ -5,12 +5,7 @@ import { User, Code, Palette, Zap, Heart, Coffee, MapPin, Calendar } from 'lucid
 import Link from 'next/link';
 
 export default function AboutPage() {
-  const tools = [
-    { category: 'Design', items: ['Figma', 'Adobe Creative Suite', 'Sketch', 'Principle'] },
-    { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
-    { category: 'Backend', items: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL'] },
-    { category: 'Tools', items: ['Git', 'Vercel', 'AWS', 'Docker'] }
-  ];
+
 
   const values = [
     {
@@ -35,33 +30,7 @@ export default function AboutPage() {
     }
   ];
 
-  const timeline = [
-    {
-      year: '2024',
-      title: 'SkillVerse Launch',
-      description: 'Launched my interactive portfolio and expanded into full-stack consulting.'
-    },
-    {
-      year: '2023',
-      title: 'Freelance Focus',
-      description: 'Transitioned to full-time freelancing, working with startups and enterprises.'
-    },
-    {
-      year: '2022',
-      title: 'Senior Developer',
-      description: 'Led development teams and architected scalable web applications.'
-    },
-    {
-      year: '2020',
-      title: 'Full-Stack Journey',
-      description: 'Expanded into backend development and cloud technologies.'
-    },
-    {
-      year: '2018',
-      title: 'Frontend Specialist',
-      description: 'Started as a frontend developer, focusing on React and modern web technologies.'
-    }
-  ];
+
 
   return (
     <div className="min-h-screen py-20">
@@ -79,12 +48,11 @@ export default function AboutPage() {
           </div>
           
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            The Human Behind <span className="text-accent">SkillVerse</span>
+            The Team Behind <span className="text-accent">DataVidhi</span>
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            I&apos;m a full-stack developer and designer who believes in building products that make a difference. 
-            Here&apos;s my story and what drives me to create exceptional digital experiences.
+            At DataVidhi, we blend technical expertise with innovation to craft solutions that inspire users and empower businesses. From full-stack development and AI to IoT and data engineering, we deliver technology that scales with impact. Guided by data and driven by Vidhi, we build with precision, creativity, and purpose.
           </p>
         </motion.div>
 
@@ -97,26 +65,16 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h2 className="font-display text-3xl font-bold mb-6">My Journey</h2>
+              <h2 className="font-display text-3xl font-bold mb-6">Our Journey</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
                 <p>
-                  My journey into the digital universe started with a simple curiosity: how do websites work? 
-                  That question led me down a rabbit hole of HTML, CSS, and JavaScript that I&apos;m still exploring today.
+                  DataVidhi started with a clear mission — to deliver technology that solves real problems and drives measurable growth.
                 </p>
                 <p>
-                  Over the years, I&apos;ve had the privilege of working with startups that became unicorns, 
-                  enterprises that needed digital transformation, and everything in between. Each project 
-                  taught me something new about the intersection of technology, design, and human behavior.
+                  From our beginnings in web and mobile development, we have expanded into a full-service IT partner offering expertise in AI, IoT, data engineering, and digital marketing. Over the years, we've built a reputation for precision, reliability, and innovation, helping businesses of all sizes scale with confidence.
                 </p>
                 <p>
-                  What excites me most is the moment when a user interacts with something I&apos;ve built and 
-                  it just works. That seamless experience, that &quot;aha&quot; moment, that&apos;s what I&apos;m chasing 
-                  with every line of code and every pixel I push.
-                </p>
-                <p>
-                  Today, I help businesses launch bold products that users love and that drive real results. 
-                  Whether it&apos;s a lightning-fast landing page or a complex web application, I bring the same 
-                  attention to detail and passion for excellence to every mission.
+                  Today, DataVidhi is a trusted partner for organizations worldwide, committed to turning ambitious ideas into powerful digital solutions.
                 </p>
               </div>
             </motion.div>
@@ -127,7 +85,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h2 className="font-display text-3xl font-bold mb-6">What I Believe In</h2>
+              <h2 className="font-display text-3xl font-bold mb-6">What we Believe in</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {values.map((value, index) => (
                   <motion.div
@@ -139,41 +97,13 @@ export default function AboutPage() {
                   >
                     <div className="text-accent mb-3">{value.icon}</div>
                     <h3 className="font-display text-lg font-semibold mb-2">{value.title}</h3>
-                    <p className="text-muted-foreground text-sm">{value.description}</p>
+                    <p className="text-muted-foreground text-sm">{value.description.replace('I believe', 'We believe').replace('I optimize', 'we optimize')}</p>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Timeline */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <h2 className="font-display text-3xl font-bold mb-6">Mission Timeline</h2>
-              <div className="space-y-6">
-                {timeline.map((item, index) => (
-                  <motion.div
-                    key={item.year}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 1 + (index * 0.1) }}
-                    className="flex gap-6"
-                  >
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold text-sm">
-                        {item.year}
-                      </div>
-                    </div>
-                    <div className="flex-1 pb-6">
-                      <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm">{item.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+
           </div>
 
           {/* Sidebar */}
@@ -197,54 +127,12 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Coffee className="w-4 h-4 text-accent" />
-                  <span className="text-sm">Powered by coffee & curiosity</span>
+                  <span className="text-sm">Guided By Data, Driven By Vidhi</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Tools */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="card p-6"
-            >
-              <h3 className="font-display text-lg font-semibold mb-4">Mission Tools</h3>
-              <div className="space-y-4">
-                {tools.map((toolGroup) => (
-                  <div key={toolGroup.category}>
-                    <h4 className="text-sm font-medium text-accent mb-2">{toolGroup.category}</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {toolGroup.items.map((tool) => (
-                        <span
-                          key={tool}
-                          className="text-xs px-2 py-1 bg-muted rounded font-medium"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Fun Facts */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="card p-6"
-            >
-              <h3 className="font-display text-lg font-semibold mb-4">Beyond Code</h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <p>🎵 Music producer in spare time</p>
-                <p>📚 Sci-fi book enthusiast</p>
-                <p>🏃‍♂️ Marathon runner</p>
-                <p>🌱 Sustainability advocate</p>
-                <p>🎮 Retro gaming collector</p>
-              </div>
-            </motion.div>
 
             {/* CTA */}
             <motion.div
@@ -258,7 +146,7 @@ export default function AboutPage() {
                 Ready to start your next mission? Let&apos;s chat about your project.
               </p>
               <Link href="/contact" className="btn-primary w-full text-center text-sm">
-                Dock Your Brief
+                Launch Your Vision
               </Link>
             </motion.div>
           </div>

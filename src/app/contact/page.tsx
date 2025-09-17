@@ -9,6 +9,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     projectType: '',
     budget: '',
     message: '',
@@ -40,6 +41,7 @@ export default function ContactPage() {
         setFormData({
           name: '',
           email: '',
+          phone: '',
           projectType: '',
           budget: '',
           message: '',
@@ -104,7 +106,7 @@ export default function ContactPage() {
           </Link>
           <div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-              Dock Your Brief
+              Contact Us
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
               Ready to launch your next mission? Let&#39;s discuss your project.
@@ -157,6 +159,21 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Phone Number with Country Code *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder="+1 (555) 123-4567"
+                />
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -202,6 +219,11 @@ export default function ContactPage() {
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 >
                   <option value="">Select project type</option>
+                  <option value="startup-tech">Startup Tech Development</option>
+                  <option value="android-app">Android/iOS Application</option>
+                  <option value="data-engineering">Data Engineering Solutions</option>
+                  <option value="iot-project">IoT Project</option>
+                  <option value="ai-ml">AI/ML/DL/Gen AI Projects</option>
                   <option value="web-app">Web Application</option>
                   <option value="website">Website</option>
                   <option value="ui-ux">UI/UX Design</option>
@@ -222,10 +244,9 @@ export default function ContactPage() {
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 >
                   <option value="">Select budget range</option>
-                  <option value="under-5k">Under $5,000</option>
-                  <option value="5k-15k">$5,000 - $15,000</option>
-                  <option value="15k-30k">$15,000 - $30,000</option>
-                  <option value="30k-plus">$30,000+</option>
+                  <option value="10-500">$10 - $500</option>
+                  <option value="2k-10k">$2k - $10k</option>
+                  <option value="10k-25k">$10k - $25k</option>
                   <option value="discuss">Let&#39;s discuss</option>
                 </select>
               </div>
@@ -262,7 +283,7 @@ export default function ContactPage() {
                 ) : (
                   <>
                     <Send className="w-4 h-4 mr-2" />
-                    Launch Mission Brief
+                    Launch Your Mission
                   </>
                 )}
               </button>
@@ -288,10 +309,10 @@ export default function ContactPage() {
                     Email
                   </h3>
                   <a
-                    href="mailto:jatingarg850@gmail.com"
+                    href="mailto:datavidhics@gmail.com"
                     className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
                   >
-                    jatingarg850@gmail.com
+                    datavidhics@gmail.com
                   </a>
                 </div>
 

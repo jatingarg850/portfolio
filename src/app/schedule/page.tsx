@@ -9,6 +9,7 @@ export default function SchedulePage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     date: '',
     time: '',
     callType: '',
@@ -43,6 +44,7 @@ export default function SchedulePage() {
         setFormData({
           name: '',
           email: '',
+          phone: '',
           date: '',
           time: '',
           callType: '',
@@ -106,7 +108,7 @@ export default function SchedulePage() {
           </Link>
           <div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-              Schedule Discovery Call
+              Book a Consultation
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
               Let&#39;s discuss your project goals and how I can help bring your vision to life.
@@ -157,6 +159,21 @@ export default function SchedulePage() {
                     placeholder="your@email.com"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Mobile Number with Country Code *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder="+1 (555) 123-4567"
+                />
               </div>
 
               <div>
@@ -255,7 +272,7 @@ export default function SchedulePage() {
                 ) : (
                   <>
                     <Calendar className="w-4 h-4 mr-2" />
-                    Schedule Discovery Call
+                    Book a Consultation
                   </>
                 )}
               </button>

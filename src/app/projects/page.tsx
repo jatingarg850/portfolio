@@ -46,7 +46,7 @@ export default async function ProjectsPage() {
           </p>
           <Link href={'/contact'}>
             <button className="btn-primary" >
-              Dock Your Brief
+              Launch Your Vision
             </button>
           </Link>
         </div>

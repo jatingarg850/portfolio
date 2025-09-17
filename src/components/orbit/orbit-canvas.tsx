@@ -24,24 +24,26 @@ interface OrbitCanvasProps {
 }
 
 type CategoryKey =
+  | 'Startup Tech Development'
+  | 'Android/iOS Application'
+  | 'Data Engineering Solutions'
+  | 'IoT Project'
+  | 'AI/ML/DL/Gen AI Projects'
   | 'Web'
   | 'UI/UX'
   | 'APIs'
-  | 'Experiments'
-  | 'Android App'
-  | 'iOS App'
-  | 'IoT'
-  | 'Data Engineering';
+  | 'Experiments';
 
 const CATEGORY_CONFIG: Record<CategoryKey, { bg: string; glow: string; ring: string }> = {
+  'Startup Tech Development': { bg: 'from-red-400 to-red-600', glow: 'rgba(239,68,68,0.6)', ring: 'rgba(239,68,68,0.4)' },
+  'Android/iOS Application': { bg: 'from-green-400 to-green-600', glow: 'rgba(34,197,94,0.6)', ring: 'rgba(34,197,94,0.4)' },
+  'Data Engineering Solutions': { bg: 'from-yellow-400 to-yellow-600', glow: 'rgba(253,224,71,0.6)', ring: 'rgba(253,224,71,0.4)' },
+  'IoT Project': { bg: 'from-cyan-400 to-cyan-600', glow: 'rgba(6,182,212,0.6)', ring: 'rgba(6,182,212,0.4)' },
+  'AI/ML/DL/Gen AI Projects': { bg: 'from-indigo-400 to-indigo-600', glow: 'rgba(99,102,241,0.6)', ring: 'rgba(99,102,241,0.4)' },
   Web: { bg: 'from-blue-400 to-blue-600', glow: 'rgba(59,130,246,0.6)', ring: 'rgba(59,130,246,0.4)' },
   'UI/UX': { bg: 'from-purple-400 to-purple-600', glow: 'rgba(147,51,234,0.6)', ring: 'rgba(147,51,234,0.4)' },
-  APIs: { bg: 'from-green-400 to-green-600', glow: 'rgba(34,197,94,0.6)', ring: 'rgba(34,197,94,0.4)' },
+  APIs: { bg: 'from-emerald-400 to-emerald-600', glow: 'rgba(16,185,129,0.6)', ring: 'rgba(16,185,129,0.4)' },
   Experiments: { bg: 'from-orange-400 to-orange-600', glow: 'rgba(249,115,22,0.6)', ring: 'rgba(249,115,22,0.4)' },
-  'Android App': { bg: 'from-green-300 to-green-600', glow: 'rgba(16,185,129,0.6)', ring: 'rgba(16,185,129,0.4)' },
-  'iOS App': { bg: 'from-gray-300 to-gray-500', glow: 'rgba(156,163,175,0.6)', ring: 'rgba(156,163,175,0.4)' },
-  IoT: { bg: 'from-cyan-400 to-cyan-600', glow: 'rgba(6,182,212,0.6)', ring: 'rgba(6,182,212,0.4)' },
-  'Data Engineering': { bg: 'from-yellow-300 to-yellow-600', glow: 'rgba(253,224,71,0.6)', ring: 'rgba(253,224,71,0.4)' },
 };
 
 
@@ -156,18 +158,19 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
   const getCatKey = (cat: string): CategoryKey =>
     (
       [
+        'Startup Tech Development',
+        'Android/iOS Application',
+        'Data Engineering Solutions',
+        'IoT Project',
+        'AI/ML/DL/Gen AI Projects',
         'Web',
         'UI/UX',
         'APIs',
         'Experiments',
-        'Android App',
-        'iOS App',
-        'IoT',
-        'Data Engineering',
       ] as const
     ).includes(cat as CategoryKey)
       ? (cat as CategoryKey)
-      : 'Web';
+      : 'Startup Tech Development';
 
   const hoveredRingIndex = useMemo(() => {
     if (!hoveredProject) return null;
@@ -196,7 +199,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
             onChange={(e) => setSelectedCategory(e.target.value)}
             className="pl-10 pr-8 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
           >
-            {['all', 'Web', 'UI/UX', 'APIs', 'Experiments', 'Android App', 'iOS App', 'IoT', 'Data Engineering'].map((c) => (
+            {['all', 'Startup Tech Development', 'Android/iOS Application', 'Data Engineering Solutions', 'IoT Project', 'AI/ML/DL/Gen AI Projects', 'Web', 'UI/UX', 'APIs', 'Experiments'].map((c) => (
               <option key={c} value={c}>
                 {c === 'all' ? 'All Categories' : c}
               </option>
@@ -251,14 +254,15 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
             <div className="text-xs text-purple-200 mb-2 font-semibold">Project Categories</div>
             <div className="space-y-2">
               {[
+                { name: 'Startup Tech Development', color: 'from-red-400 to-red-600', key: 'Startup Tech Development' },
+                { name: 'Android/iOS Application', color: 'from-green-400 to-green-600', key: 'Android/iOS Application' },
+                { name: 'Data Engineering Solutions', color: 'from-yellow-400 to-yellow-600', key: 'Data Engineering Solutions' },
+                { name: 'IoT Project', color: 'from-cyan-400 to-cyan-600', key: 'IoT Project' },
+                { name: 'AI/ML/DL/Gen AI Projects', color: 'from-indigo-400 to-indigo-600', key: 'AI/ML/DL/Gen AI Projects' },
                 { name: 'Web Applications', color: 'from-blue-400 to-blue-600', key: 'Web' },
                 { name: 'UI/UX Design', color: 'from-purple-400 to-purple-600', key: 'UI/UX' },
-                { name: 'API Development', color: 'from-green-400 to-green-600', key: 'APIs' },
+                { name: 'API Development', color: 'from-emerald-400 to-emerald-600', key: 'APIs' },
                 { name: 'Experiments', color: 'from-orange-400 to-orange-600', key: 'Experiments' },
-                { name: 'Android App', color: 'from-green-300 to-green-600', key: 'Android App' },
-                { name: 'iOS App', color: 'from-gray-300 to-gray-500', key: 'iOS App' },
-                { name: 'IoT Project', color: 'from-cyan-400 to-cyan-600', key: 'IoT' },
-                { name: 'Data Engineering', color: 'from-yellow-300 to-yellow-600', key: 'Data Engineering' },
               ].map((c) => (
                 <div key={c.name} className="flex items-center gap-2 text-xs">
                   <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${c.color}`} />
@@ -405,7 +409,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
             </motion.div>
 
             {/* Rays */}
-            {Array.from({ length: 8 }).map((_, i) => (
+            {Array.from({ length: 8 }).filter((_, i) => i !== 4).map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute bg-gradient-to-r from-transparent via-yellow-300/40 to-transparent"
@@ -415,7 +419,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
                   width: 2,
                   height: 48,
                   transformOrigin: 'center bottom',
-                  transform: `translate(-50%, -50%) rotate(${i * 45}deg) translateY(-24px)`,
+                  transform: `translate(-50%, -50%) rotate(${i >= 4 ? (i + 1) * 45 : i * 45}deg) translateY(-24px)`,
                 }}
                 animate={{ scaleY: [0.3, 0.82, 0.3], opacity: [0.18, 0.5, 0.18] }}
                 transition={{
@@ -585,16 +589,16 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
           >
             <div className="text-xs text-purple-200 mb-3 font-semibold">Project Categories</div>
             <div className="space-y-2">
-              {/* ...existing code... */}
               {[
+                { name: 'Startup Tech Development', color: 'from-red-400 to-red-600', key: 'Startup Tech Development' },
+                { name: 'Android/iOS Application', color: 'from-green-400 to-green-600', key: 'Android/iOS Application' },
+                { name: 'Data Engineering Solutions', color: 'from-yellow-400 to-yellow-600', key: 'Data Engineering Solutions' },
+                { name: 'IoT Project', color: 'from-cyan-400 to-cyan-600', key: 'IoT Project' },
+                { name: 'AI/ML/DL/Gen AI Projects', color: 'from-indigo-400 to-indigo-600', key: 'AI/ML/DL/Gen AI Projects' },
                 { name: 'Web Applications', color: 'from-blue-400 to-blue-600', key: 'Web' },
                 { name: 'UI/UX Design', color: 'from-purple-400 to-purple-600', key: 'UI/UX' },
-                { name: 'API Development', color: 'from-green-400 to-green-600', key: 'APIs' },
+                { name: 'API Development', color: 'from-emerald-400 to-emerald-600', key: 'APIs' },
                 { name: 'Experiments', color: 'from-orange-400 to-orange-600', key: 'Experiments' },
-                { name: 'Android App', color: 'from-green-300 to-green-600', key: 'Android App' },
-                { name: 'iOS App', color: 'from-gray-300 to-gray-500', key: 'iOS App' },
-                { name: 'IoT Project', color: 'from-cyan-400 to-cyan-600', key: 'IoT' },
-                { name: 'Data Engineering', color: 'from-yellow-300 to-yellow-600', key: 'Data Engineering' },
               ].map((c) => (
                 <div key={c.name} className="flex items-center gap-3 text-xs">
                   <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${c.color}`} />
@@ -663,9 +667,9 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 10 }}
             transition={{ duration: 0.15 }}
-            className={`absolute pointer-events-none z-[60] ${isMobile ? 'top-14 left-1/2 -translate-x-1/2 px-2 py-1 text-[11px] max-w-[90vw] w-[95vw]' : 'top-20 left-1/2 -translate-x-1/2 px-4 py-3 max-w-[300px] min-w-[250px]'}`}
+            className={`absolute pointer-events-none z-[60] ${isMobile ? 'top-14 left-1/2 -translate-x-1/2 px-3 py-2 text-xs max-w-[95vw] w-[90vw]' : 'top-20 left-1/2 -translate-x-1/2 px-6 py-4 max-w-[350px] min-w-[300px]'}`}
           >
-            <div className="bg-black/95 backdrop-blur-md text-white text-sm rounded-xl shadow-2xl border border-white/20">
+            <div className="bg-black/95 backdrop-blur-md text-white text-sm rounded-xl shadow-2xl border border-white/20 text-center">
               <div className="font-bold text-base mb-1">{hoveredProject.title}</div>
               <div className="text-gray-300 text-xs mb-3 leading-relaxed">
                 {hoveredProject.tagline}

@@ -15,10 +15,10 @@ export function Header() {
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   const navigation = [
-    { name: 'Orbit', href: '/' },
+    { name: 'Core', href: '/' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Skills', href: '/skills' },
-    { name: 'Services', href: '/services' },
+    { name: 'Services', href: '/skills' },
+    { name: 'Packages', href: '/services' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -40,13 +40,16 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <motion.div
-              className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg flex items-center justify-center overflow-hidden"
+              className="w-8 h-8 rounded-full shadow-lg flex items-center justify-center overflow-hidden border-2 border-blue-500/20"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
-                <Image src="/image.png" alt="Logo" width={32} height={32} />
+                <Image src="/image.jpg" alt="DataVidhi Logo" width={32} height={32} className="rounded-full object-cover w-full h-full" />
             </motion.div>
-            <span className="font-display text-xl font-bold text-gray-900 dark:text-white">SkillVerse</span>
+            <div className="flex flex-col">
+              <span className="font-display text-xl font-bold text-gray-900 dark:text-white">DataVidhi</span>
+              <span className="text-xs text-gray-600 dark:text-gray-400 -mt-1">Guided by Data, Driven By Vidhi</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

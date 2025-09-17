@@ -117,8 +117,10 @@ export default function AdminSkills() {
       const response = await fetch(`/api/skills/${id}`, {
         method: 'DELETE',
       });
-      await fetchSkills();
-      if (!response.ok) {
+      
+      if (response.ok) {
+        await fetchSkills();
+      } else {
         const errorData = await response.json();
         alert(errorData.error || 'Failed to delete skill');
       }
