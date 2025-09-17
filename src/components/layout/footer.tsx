@@ -157,7 +157,7 @@ export function Footer() {
               <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-lg p-4 border border-blue-500/20">
                 <h4 className="font-semibold mb-2">Ready to Launch?</h4>
                 <p className="text-sm text-gray-400 mb-3">
-                  Let's discuss your next project and bring your vision to life.
+                  Let&apos;s discuss your next project and bring your vision to life.
                 </p>
                 <Link
                   href="/contact"

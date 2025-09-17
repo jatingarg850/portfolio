@@ -71,7 +71,7 @@ export default function AboutPage() {
                   DataVidhi started with a clear mission — to deliver technology that solves real problems and drives measurable growth.
                 </p>
                 <p>
-                  From our beginnings in web and mobile development, we have expanded into a full-service IT partner offering expertise in AI, IoT, data engineering, and digital marketing. Over the years, we've built a reputation for precision, reliability, and innovation, helping businesses of all sizes scale with confidence.
+                  From our beginnings in web and mobile development, we have expanded into a full-service IT partner offering expertise in AI, IoT, data engineering, and digital marketing. Over the years, we&apos;ve built a reputation for precision, reliability, and innovation, helping businesses of all sizes scale with confidence.
                 </p>
                 <p>
                   Today, DataVidhi is a trusted partner for organizations worldwide, committed to turning ambitious ideas into powerful digital solutions.

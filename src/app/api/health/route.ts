@@ -1,9 +1,9 @@
-import { NextRequest } from 'next/server';
+
 import { createSuccessResponse, createErrorResponse, withErrorHandling } from '@/lib/api-helpers';
 import connectDB from '@/lib/mongodb';
 import { logger } from '@/lib/logger';
 
-async function healthCheck(_req: NextRequest) {
+async function healthCheck() {
   const startTime = Date.now();
 
   try {

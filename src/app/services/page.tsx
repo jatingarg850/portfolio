@@ -69,28 +69,7 @@ export default function ServicesPage() {
     }
   ];
 
-  const addOns = [
-    {
-      name: 'UI/UX Audit',
-      price: '$500 - $1K',
-      description: 'Comprehensive analysis of your current design and user experience'
-    },
-    {
-      name: 'Performance Optimization',
-      price: '$800 - $2K',
-      description: 'Speed up your site and improve Core Web Vitals scores'
-    },
-    {
-      name: 'Accessibility Review',
-      price: '$600 - $1.5K',
-      description: 'Ensure your site meets WCAG guidelines and is inclusive'
-    },
-    {
-      name: 'SEO Optimization',
-      price: '$700 - $2K',
-      description: 'Technical SEO improvements and content optimization'
-    }
-  ];
+
 
   return (
     <div className="min-h-screen py-20">

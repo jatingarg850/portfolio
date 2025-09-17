@@ -52,7 +52,7 @@ export default function TermsPage() {
               <AlertTriangle className="w-6 h-6 mr-3 text-yellow-600" />
               Limitations
             </h2>
-            <p className="mb-4">Our services are provided "as is" without warranties of any kind. We are not liable for:</p>
+            <p className="mb-4">Our services are provided &quot;as is&quot; without warranties of any kind. We are not liable for:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Indirect or consequential damages</li>
               <li>Loss of data or business interruption</li>
