@@ -170,7 +170,7 @@ export default function AboutPage() {
               Start a Project
             </Link>
             <Link href="/projects" className="btn-secondary">
-              View My Work
+              View Our Work
             </Link>
           </div>
         </motion.div>

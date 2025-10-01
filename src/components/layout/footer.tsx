@@ -91,7 +91,12 @@ export function Footer() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-blue-400" />
-                  <span className="text-gray-400">Available for consultation</span>
+                  <a 
+                    href="tel:+918920729358" 
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    +91 8920729358
+                  </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-4 h-4 text-blue-400" />
@@ -206,7 +211,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6">
                 <span className="flex items-center">🚀 20+ Projects Launched</span>
-                <span className="flex items-center">⚡ 60 Days Delivery</span>
+                <span className="flex items-center">⚡ 30-60 Days Delivery</span>
                 <span className="flex items-center">🎯 100% Client Satisfaction</span>
               </div>
             </div>

@@ -49,9 +49,9 @@ const seedData = async () => {
         website: 'https://skillverse.dev'
       },
       stats: {
-        projectsCompleted: 50,
+        projectsCompleted: 20,
         clientSatisfaction: 100,
-        avgPerformanceScore: 95,
+        avgPerformanceScore: 60,
         responseTime: '<12h'
       }
     });

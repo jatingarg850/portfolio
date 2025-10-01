@@ -109,7 +109,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-gray-600 dark:text-gray-400">
-              Ready to launch your next mission? Let&#39;s discuss your project.
+              Ready to launch your mission? Let&#39;s discuss your project.
             </p>
           </div>
         </div>
@@ -224,6 +224,7 @@ export default function ContactPage() {
                   <option value="data-engineering">Data Engineering Solutions</option>
                   <option value="iot-project">IoT Project</option>
                   <option value="ai-ml">AI/ML/DL/Gen AI Projects</option>
+                  <option value="marketing-ads">Marketing Facebook/Meta Ads</option>
                   <option value="web-app">Web Application</option>
                   <option value="website">Website</option>
                   <option value="ui-ux">UI/UX Design</option>
@@ -313,6 +314,32 @@ export default function ContactPage() {
                     className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
                   >
                     datavidhics@gmail.com
+                  </a>
+                </div>
+
+                <div>
+                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">
+                    Phone
+                  </h3>
+                  <a
+                    href="tel:+918920729358"
+                    className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                  >
+                    +91 8920729358
+                  </a>
+                </div>
+
+                <div>
+                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">
+                    WhatsApp
+                  </h3>
+                  <a
+                    href="https://wa.me/+918920729358"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                  >
+                    Chat on WhatsApp
                   </a>
                 </div>
 

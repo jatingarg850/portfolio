@@ -245,7 +245,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
     <div className={`relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 border border-purple-500/20 ${isMobile ? 'h-[400px]' : 'h-[700px]'}`}>
       {/* Content boxes for mobile: move outside orbit area, stack vertically */}
       {isMobile && (
-        <div className="flex flex-col items-center gap-2 absolute left-0 right-0 top-2 z-[100] px-2">
+        <div className="flex flex-col items-center gap-2 absolute left-0 right-0 top-2 z-[40] px-2">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -409,9 +409,9 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
             </motion.div>
 
             {/* Rays */}
-            {Array.from({ length: 8 }).filter((_, i) => i !== 4).map((_, i) => (
+            {[45, 135, 225, 315].map((angle, i) => (
               <motion.div
-                key={i}
+                key={angle}
                 className="absolute bg-gradient-to-r from-transparent via-yellow-300/40 to-transparent"
                 style={{
                   left: '50%',
@@ -419,7 +419,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
                   width: 2,
                   height: 48,
                   transformOrigin: 'center bottom',
-                  transform: `translate(-50%, -50%) rotate(${i >= 4 ? (i + 1) * 45 : i * 45}deg) translateY(-24px)`,
+                  transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-24px)`,
                 }}
                 animate={{ scaleY: [0.3, 0.82, 0.3], opacity: [0.18, 0.5, 0.18] }}
                 transition={{
@@ -513,8 +513,8 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
                       {/* Click/hover target */}
                       <motion.button
                         type="button"
-                        className="relative block w-full h-full cursor-pointer rounded-full focus:outline-none z-[100]"
-                        style={{ zIndex: 100 }}
+                        className="relative block w-full h-full cursor-pointer rounded-full focus:outline-none z-[30]"
+                        style={{ zIndex: 30 }}
                         onClick={() => onProjectClick(project)}
                         onMouseEnter={() => setHoveredProject(project)}
                         onMouseLeave={() => setHoveredProject(null)}
@@ -585,7 +585,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[100]"
+            className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[40]"
           >
             <div className="text-xs text-purple-200 mb-3 font-semibold">Project Categories</div>
             <div className="space-y-2">
@@ -611,7 +611,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="absolute top-6 right-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[100]"
+            className="absolute top-6 right-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[40]"
           >
             <div className="text-xs text-purple-200 mb-2 font-semibold">Navigation</div>
             <div className="text-xs text-white/70 space-y-1">
@@ -623,7 +623,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute top-6 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10 z-[100]"
+            className="absolute top-6 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10 z-[40]"
           >
             <div className="text-center">
               <div className="text-lg font-bold text-white">{filteredProjects.length}</div>
@@ -667,7 +667,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 10 }}
             transition={{ duration: 0.15 }}
-            className={`absolute pointer-events-none z-[60] ${isMobile ? 'top-14 left-1/2 -translate-x-1/2 px-3 py-2 text-xs max-w-[95vw] w-[90vw]' : 'top-20 left-1/2 -translate-x-1/2 px-6 py-4 max-w-[350px] min-w-[300px]'}`}
+            className={`absolute pointer-events-none z-[40] ${isMobile ? 'top-14 left-1/2 -translate-x-1/2 px-3 py-2 text-xs max-w-[95vw] w-[90vw]' : 'top-20 left-1/2 -translate-x-1/2 px-6 py-4 max-w-[350px] min-w-[300px]'}`}
           >
             <div className="bg-black/95 backdrop-blur-md text-white text-sm rounded-xl shadow-2xl border border-white/20 text-center">
               <div className="font-bold text-base mb-1">{hoveredProject.title}</div>

@@ -104,12 +104,12 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative card p-8 ${
+              className={`relative card p-8 flex flex-col h-full ${
                 service.popular ? 'border-accent shadow-lg scale-105' : ''
               }`}
             >
               {service.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-accent-foreground text-sm font-medium rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-accent-foreground text-xs font-semibold rounded-full">
                   Most Popular
                 </div>
               )}
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 <p className="text-muted-foreground mt-4">{service.description}</p>
               </div>
 
-              <div className="space-y-3 mb-8">
+              <div className="space-y-3 mb-8 flex-grow">
                 {service.features.map((feature) => (
                   <div key={feature} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
@@ -135,10 +135,10 @@ export default function ServicesPage() {
 
               <Link 
                 href="/contact" 
-                className={`block w-full text-center py-3 px-6 rounded-lg font-medium transition-colors ${
+                className={`block w-full text-center py-3 px-6 rounded-lg font-medium transition-colors border mt-auto ${
                   service.popular 
-                    ? 'bg-accent text-accent-foreground hover:bg-accent/90' 
-                    : 'border border-accent text-accent hover:bg-accent hover:text-accent-foreground'
+                    ? 'bg-accent text-accent-foreground border-accent hover:bg-accent/90' 
+                    : 'border-accent text-accent hover:bg-accent hover:text-accent-foreground'
                 }`}
               >
                 {service.cta}
@@ -160,22 +160,43 @@ export default function ServicesPage() {
             Mission Process
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {[
-              { step: '01', title: 'Discover', desc: 'Understanding your goals and requirements' },
-              { step: '02', title: 'Design', desc: 'Creating wireframes and visual designs' },
-              { step: '03', title: 'Build', desc: 'Development with regular progress updates' },
-              { step: '04', title: 'Ship', desc: 'Testing, deployment, and launch' },
-              { step: '05', title: 'Iterate', desc: 'Ongoing support and improvements' }
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-accent/10 text-accent flex items-center justify-center text-lg font-bold mx-auto mb-4">
-                  {item.step}
-                </div>
-                <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+              {/* Connecting Lines */}
+              <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20 z-0"></div>
+              
+              {[
+                { step: '01', title: 'Discover', desc: 'Understanding your goals and requirements', icon: '🔍' },
+                { step: '02', title: 'Design', desc: 'Creating wireframes and visual designs', icon: '🎨' },
+                { step: '03', title: 'Build', desc: 'Development with regular progress updates', icon: '⚡' },
+                { step: '04', title: 'Ship', desc: 'Testing, deployment, and launch', icon: '🚀' },
+                { step: '05', title: 'Iterate', desc: 'Ongoing support and improvements', icon: '🔄' }
+              ].map((item, index) => (
+                <motion.div 
+                  key={item.step} 
+                  className="text-center relative z-10"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.9 + (index * 0.1) }}
+                >
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 border-2 border-accent/30 text-accent flex items-center justify-center text-lg font-bold mx-auto mb-2 shadow-lg backdrop-blur-sm">
+                      {item.step}
+                    </div>
+                    <div className="text-2xl mb-2">{item.icon}</div>
+                  </div>
+                  <h3 className="font-display text-lg font-semibold mb-2 text-accent">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  
+                  {/* Arrow for mobile */}
+                  {index < 4 && (
+                    <div className="md:hidden flex justify-center mt-4 mb-4">
+                      <div className="w-0.5 h-8 bg-gradient-to-b from-accent/40 to-transparent"></div>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
 

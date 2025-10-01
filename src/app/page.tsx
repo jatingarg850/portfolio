@@ -87,7 +87,7 @@ export default function HomePage() {
             >
               We build for tomorrow&#39;s web.
               <br />
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Precision in Every Byte. Guided by data, Driven by Vidhi.</span>
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Future</span>
             </motion.h1>
 
             <motion.p
@@ -99,6 +99,17 @@ export default function HomePage() {
               Full‑stack builds with measurable outcomes—speed, UX, and scale.
               Explore our universe of projects and launch your vision to start your mission.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-center mb-8"
+            >
+              <blockquote className="text-sm italic text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+                &quot;Precision in Every Byte. Guided by data, Driven by Vidhi.&quot;
+              </blockquote>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -178,7 +189,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { label: 'Projects Launched', value: `${userStats.projectsCompleted}+` },
-              { label: '60 Days Delivery Time', value: `${userStats.avgPerformanceScore}` },
+              { label: 'Delivery Time', value: '30-60 Days' },
               { label: 'Client Satisfaction', value: `${userStats.clientSatisfaction}%` },
               { label: 'Response Time', value: userStats.responseTime },
             ].map((stat, index) => (
