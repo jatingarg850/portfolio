@@ -200,44 +200,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* Technology Stack */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              Powered by Modern Technology
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              We leverage cutting-edge technologies to build scalable, secure, and high-performance solutions
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center group hover:scale-105 transition-transform duration-300"
-              >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-xl flex items-center justify-center group-hover:shadow-lg transition-shadow">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded" />
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{tech.name}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{tech.category}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
