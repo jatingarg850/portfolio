@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  ArrowLeft, 
   Calendar, 
   Clock, 
   Video, 
@@ -170,10 +169,10 @@ export default function SchedulePage() {
         >
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              What You'll Get From This Call
+              What You&apos;ll Get From This Call
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              This isn't a sales call. It's a strategic session designed to provide you with valuable insights.
+              This isn&apos;t a sales call. It&apos;s a strategic session designed to provide you with valuable insights.
             </p>
           </div>
 
@@ -268,7 +267,7 @@ export default function SchedulePage() {
                 quote: "Professional, knowledgeable, and provided actionable recommendations.",
                 rating: 5
               }
-            ].map((testimonial, index) => (
+            ].map((testimonial) => (
               <div key={testimonial.name} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
                 <div className="flex items-center mb-2">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -276,7 +275,7 @@ export default function SchedulePage() {
                   ))}
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div>
                   <div className="font-semibold text-gray-900 dark:text-white text-sm">{testimonial.name}</div>

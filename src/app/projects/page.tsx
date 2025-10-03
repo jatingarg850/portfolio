@@ -5,7 +5,6 @@ import ProjectsGrid from './ProjectsGrid';
 import { 
   Rocket, 
   TrendingUp, 
-  Users, 
   Award, 
   Globe,
   ArrowRight,
@@ -194,7 +193,7 @@ export default function ProjectsPage() {
                 value: "95%",
                 description: "Clients who continue working with us"
               }
-            ].map((metric, index) => (
+            ].map((metric) => (
               <div key={metric.title} className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-4">
                   {metric.icon}
@@ -234,7 +233,7 @@ export default function ProjectsPage() {
             Ready to Join Our Success Stories?
           </h2>
           <p className="text-blue-200 mb-8 max-w-2xl mx-auto text-lg">
-            Let's transform your vision into a digital reality. Every great project starts with a conversation 
+            Let&apos;s transform your vision into a digital reality. Every great project starts with a conversation 
             about your goals, challenges, and aspirations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -14,7 +14,6 @@ import {
   Clock,
   Users,
   Headphones,
-  Code,
   Database,
   Smartphone,
   Cloud,
@@ -315,7 +314,7 @@ export default function PackagesPage() {
 
                 {/* Features */}
                 <div className="space-y-4 mb-8">
-                  <h4 className="font-semibold text-gray-900 dark:text-white">What's Included:</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">What&apos;s Included:</h4>
                   {pkg.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -440,7 +439,7 @@ export default function PackagesPage() {
                   ))}
                 </div>
                 <blockquote className="text-gray-700 dark:text-gray-300 mb-4 italic">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
                 <div className="flex items-center justify-between">
                   <div>
@@ -518,7 +517,7 @@ export default function PackagesPage() {
             Ready to Get Started?
           </h2>
           <p className="text-blue-200 mb-8 max-w-2xl mx-auto text-lg">
-            Choose your package and let's transform your vision into reality. 
+            Choose your package and let&apos;s transform your vision into reality. 
             Every great success story starts with the right foundation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

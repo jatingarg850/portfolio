@@ -12,7 +12,7 @@ export default function TestSkillsAPI() {
       const data = await response.json();
       setResult(JSON.stringify(data, null, 2));
     } catch (error) {
-      setResult('Error: ' + error.message);
+      setResult('Error: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 
@@ -33,7 +33,7 @@ export default function TestSkillsAPI() {
       const data = await response.json();
       setResult(`Status: ${response.status}\n${JSON.stringify(data, null, 2)}`);
     } catch (error) {
-      setResult('Error: ' + error.message);
+      setResult('Error: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 

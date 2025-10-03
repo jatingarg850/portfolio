@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -8,7 +8,6 @@ import {
   Zap,
   Target,
   Calendar,
-  CheckCircle,
   Users,
   Award,
   TrendingUp,
@@ -23,28 +22,7 @@ import { Project } from '@/lib/types';
 import Link from 'next/link';
 
 export default function HomePage() {
-  const [userStats, setUserStats] = useState({
-    projectsCompleted: 20,
-    avgPerformanceScore: 60,
-    clientSatisfaction: 100,
-    responseTime: '<12h'
-  });
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch('/api/user');
-        const data = await response.json();
-        if (data.success && data.data) {
-          setUserStats(data.data.stats);
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUserData();
-  }, []);
 
   const handleProjectClick = (project: Project) => {
     if (project.links?.live) {
@@ -84,8 +62,34 @@ export default function HomePage() {
     { name: 'Docker', category: 'DevOps' }
   ];
 
-  const testimonials = [
-
+  const testimonials: Array<{
+    name: string;
+    role: string;
+    company: string;
+    quote: string;
+    rating: number;
+  }> = [
+    {
+      name: "Sarah Johnson",
+      role: "CTO",
+      company: "TechStart Inc",
+      quote: "Exceptional work quality and attention to detail. The project was delivered on time and exceeded our expectations.",
+      rating: 5
+    },
+    {
+      name: "Michael Chen",
+      role: "Product Manager",
+      company: "InnovateCorp",
+      quote: "Professional, reliable, and innovative solutions. Great communication throughout the entire project.",
+      rating: 5
+    },
+    {
+      name: "Emily Rodriguez",
+      role: "Founder",
+      company: "Digital Solutions",
+      quote: "Outstanding technical expertise and creative problem-solving. Highly recommend for any development project.",
+      rating: 5
+    }
   ];
 
   return (

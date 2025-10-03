@@ -138,7 +138,7 @@ export default function AdminSkills() {
       }
     } catch (error) {
       console.error('Error deleting skill:', error);
-      alert('Failed to delete skill: ' + error.message);
+      alert('Failed to delete skill: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 

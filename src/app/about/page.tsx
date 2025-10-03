@@ -3,21 +3,12 @@
 import { motion } from 'framer-motion';
 import { 
   Users, 
-  Award, 
   Globe, 
-  Target, 
   Zap, 
   Shield, 
   TrendingUp,
   Code,
-  Palette,
-  Heart,
-  MapPin,
-  Calendar,
-  Coffee,
-  Briefcase,
-  GraduationCap,
-  Star
+  Heart
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -45,83 +36,7 @@ export default function AboutPage() {
     }
   ];
 
-  const team = [
-    {
-      name: "Vidhi Sharma",
-      role: "Founder & CEO",
-      expertise: "AI/ML, Strategic Leadership",
-      experience: "8+ years",
-      education: "MS Computer Science, IIT Delhi",
-      achievements: ["Led 50+ AI implementations", "Forbes 30 Under 30", "TEDx Speaker"],
-      image: "/team/vidhi.jpg"
-    },
-    {
-      name: "Arjun Patel", 
-      role: "CTO & Co-founder",
-      expertise: "Full-Stack Architecture, DevOps",
-      experience: "10+ years",
-      education: "B.Tech CSE, NIT Trichy",
-      achievements: ["Ex-Google Senior Engineer", "Open Source Contributor", "AWS Certified Solutions Architect"],
-      image: "/team/arjun.jpg"
-    },
-    {
-      name: "Dr. Priya Mehta",
-      role: "Head of Data Science",
-      expertise: "Machine Learning, Data Engineering",
-      experience: "12+ years",
-      education: "PhD in Data Science, Stanford",
-      achievements: ["Published 25+ Research Papers", "Ex-Microsoft Principal Scientist", "Kaggle Grandmaster"],
-      image: "/team/priya.jpg"
-    },
-    {
-      name: "Rohit Kumar",
-      role: "Lead IoT Engineer", 
-      expertise: "IoT, Embedded Systems, Hardware",
-      experience: "7+ years",
-      education: "M.Tech Electronics, IISc Bangalore",
-      achievements: ["50+ IoT Deployments", "Patent Holder", "Industry 4.0 Expert"],
-      image: "/team/rohit.jpg"
-    }
-  ];
 
-  const milestones = [
-    {
-      year: "2019",
-      title: "DataVidhi Founded",
-      description: "Started with a vision to democratize AI and data solutions for businesses of all sizes.",
-      icon: <Briefcase className="w-6 h-6" />
-    },
-    {
-      year: "2020", 
-      title: "First Enterprise Client",
-      description: "Secured our first Fortune 500 client and delivered a transformative AI solution.",
-      icon: <Award className="w-6 h-6" />
-    },
-    {
-      year: "2021",
-      title: "Global Expansion",
-      description: "Expanded operations to serve clients across 15 countries with 24/7 support.",
-      icon: <Globe className="w-6 h-6" />
-    },
-    {
-      year: "2022",
-      title: "100+ Projects Milestone",
-      description: "Successfully delivered 100+ projects with 99.5% client satisfaction rate.",
-      icon: <Target className="w-6 h-6" />
-    },
-    {
-      year: "2023",
-      title: "AI Innovation Lab",
-      description: "Launched dedicated R&D lab for next-generation AI and IoT solutions.",
-      icon: <GraduationCap className="w-6 h-6" />
-    },
-    {
-      year: "2024",
-      title: "Industry Recognition",
-      description: "Recognized as 'Top AI Solutions Provider' by TechCrunch and Forbes.",
-      icon: <Star className="w-6 h-6" />
-    }
-  ];
 
   const stats = [
     { label: "Global Clients", value: "200+", icon: <Users className="w-6 h-6" /> },
@@ -163,7 +78,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
         >
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-4">
                 {stat.icon}

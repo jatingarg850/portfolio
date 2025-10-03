@@ -12,13 +12,7 @@ import {
   Smartphone,
   Cloud,
   Database,
-  Shield,
-  TrendingUp,
-  Users,
-  Globe,
-  Cpu,
-  BarChart3,
-  Palette
+  Cpu
 } from 'lucide-react';
 import Link from 'next/link';
 

@@ -3,7 +3,7 @@ import connectDB from '@/lib/mongodb';
 import Skill from '@/lib/models/Skill';
 import { withAdminAuth } from '@/lib/auth';
 
-export const PUT = withAdminAuth(async (request: NextRequest, user: unknown, context?: unknown): Promise<Response> => {
+export const PUT = withAdminAuth(async (request: NextRequest): Promise<Response> => {
   try {
     await connectDB();
     
@@ -43,7 +43,7 @@ export const PUT = withAdminAuth(async (request: NextRequest, user: unknown, con
   }
 });
 
-export const DELETE = withAdminAuth(async (request: NextRequest, user: unknown, context?: unknown): Promise<Response> => {
+export const DELETE = withAdminAuth(async (request: NextRequest): Promise<Response> => {
   try {
     await connectDB();
     
