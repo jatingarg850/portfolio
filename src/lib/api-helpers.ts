@@ -177,7 +177,7 @@ export function withErrorHandling(
 // CORS helper
 export function setCorsHeaders(response: NextResponse, origin?: string) {
   const allowedOrigins = process.env.NODE_ENV === 'production'
-    ? [process.env.NEXTAUTH_URL!]
+    ? ['https://skillverse.netlify.app'] // Replace with your actual domain
     : ['http://localhost:3000'];
   
   const requestOrigin = origin || '';

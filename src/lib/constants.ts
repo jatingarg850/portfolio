@@ -4,7 +4,7 @@ export const APP_CONFIG = {
   description: 'Interactive Developer Portfolio',
   version: '1.0.0',
   author: 'Your Name',
-  url: process.env.NEXTAUTH_URL || 'http://localhost:3000',
+  url: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000',
 } as const;
 
 // Database constants
@@ -31,7 +31,7 @@ export const API_CONFIG = {
   },
   cors: {
     origin: process.env.NODE_ENV === 'production' 
-      ? [process.env.NEXTAUTH_URL!] 
+      ? true // Allow same origin in production
       : ['http://localhost:3000'],
     credentials: true,
   },

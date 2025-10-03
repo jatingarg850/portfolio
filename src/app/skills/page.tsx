@@ -1,7 +1,9 @@
 import SkillsGrid from './SkillsGrid';
 
 async function getSkills() {
-  const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NODE_ENV === 'production' 
+    ? 'https://skillverse.netlify.app' // Replace with your actual domain
+    : 'http://localhost:3000';
   const res = await fetch(`${baseUrl}/api/skills`, {
     cache: 'no-store',
   });

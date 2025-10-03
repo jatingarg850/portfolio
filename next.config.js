@@ -8,9 +8,7 @@ const nextConfig = {
       },
     ],
   },
-  env: {
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-  },
+
   // Production optimizations
   compress: true,
   poweredByHeader: false,
