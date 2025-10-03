@@ -2,7 +2,20 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Clock, Video, Phone } from 'lucide-react';
+import { 
+  ArrowLeft, 
+  Calendar, 
+  Clock, 
+  Video, 
+  Phone, 
+  CheckCircle,
+  Users,
+  Target,
+  Lightbulb,
+  Shield,
+  Star,
+  Globe
+} from 'lucide-react';
 import Link from 'next/link';
 
 export default function SchedulePage() {
@@ -97,24 +110,182 @@ export default function SchedulePage() {
   }
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center mb-8">
-          <Link
-            href="/"
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors mr-4"
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20">
+        <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] opacity-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
           >
-            <ArrowLeft className="w-5 h-5" />
-          </Link>
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-              Book a Consultation
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-sm font-medium backdrop-blur-sm mb-6">
+              <Calendar className="w-4 h-4 mr-2" />
+              Free Strategy Session
+            </div>
+            
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+              Book Your Free
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                Consultation Call
+              </span>
             </h1>
-            <p className="text-gray-600 dark:text-gray-400">
-              Let&#39;s discuss your project goals and how I can help bring your vision to life.
+            
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+              Get expert insights on your project, discuss technical requirements, and discover how we can 
+              transform your vision into a successful digital solution. No commitment required.
+            </p>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-blue-200">
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 mr-2" />
+                <span>100% Free Consultation</span>
+              </div>
+              <div className="flex items-center">
+                <Clock className="w-5 h-5 mr-2" />
+                <span>30-45 Minutes</span>
+              </div>
+              <div className="flex items-center">
+                <Shield className="w-5 h-5 mr-2" />
+                <span>No Sales Pressure</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        {/* Benefits Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+              What You'll Get From This Call
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              This isn't a sales call. It's a strategic session designed to provide you with valuable insights.
             </p>
           </div>
-        </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <Target className="w-8 h-8" />,
+                title: "Project Roadmap",
+                description: "Clear technical approach and timeline for your project"
+              },
+              {
+                icon: <Lightbulb className="w-8 h-8" />,
+                title: "Expert Insights",
+                description: "Industry best practices and technology recommendations"
+              },
+              {
+                icon: <Users className="w-8 h-8" />,
+                title: "Team Fit Assessment",
+                description: "Understand if we're the right partner for your vision"
+              },
+              {
+                icon: <Globe className="w-8 h-8" />,
+                title: "Market Analysis",
+                description: "Competitive landscape and positioning strategies"
+              }
+            ].map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 + (index * 0.1) }}
+                className="text-center"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-4">
+                  {benefit.icon}
+                </div>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  {benefit.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Social Proof */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-16 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800"
+        >
+          <div className="text-center mb-8">
+            <h3 className="font-display text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Join 200+ Successful Consultations
+            </h3>
+            <div className="flex items-center justify-center gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">98%</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Satisfaction Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">45min</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Average Duration</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">24h</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Response Time</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Sarah Chen",
+                role: "Startup Founder",
+                quote: "The consultation gave me clarity on my tech stack and saved months of development time.",
+                rating: 5
+              },
+              {
+                name: "Michael Rodriguez",
+                role: "Product Manager",
+                quote: "Incredibly valuable insights. DataVidhi understood our challenges immediately.",
+                rating: 5
+              },
+              {
+                name: "Dr. Priya Patel",
+                role: "Healthcare CTO",
+                quote: "Professional, knowledgeable, and provided actionable recommendations.",
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <div key={testimonial.name} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+                <div className="flex items-center mb-2">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 italic">
+                  "{testimonial.quote}"
+                </p>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white text-sm">{testimonial.name}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{testimonial.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div

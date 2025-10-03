@@ -160,7 +160,7 @@ export function withAdminAuth(handler: (req: NextRequest, user: unknown, context
     try {
       const session = await getSession();
       
-            if (!session?.user) {
+      if (!session?.user) {
         return NextResponse.json(
           { error: 'Authentication required' },
           { status: 401 }

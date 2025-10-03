@@ -113,20 +113,32 @@ export default function AdminSkills() {
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this skill?')) return;
 
+    console.log('Attempting to delete skill with ID:', id);
+
     try {
       const response = await fetch(`/api/skills/${id}`, {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       
+      console.log('Delete response status:', response.status);
+      console.log('Delete response ok:', response.ok);
+      
       if (response.ok) {
+        const result = await response.json();
+        console.log('Delete successful:', result);
         await fetchSkills();
+        alert('Skill deleted successfully!');
       } else {
         const errorData = await response.json();
+        console.error('Delete failed:', errorData);
         alert(errorData.error || 'Failed to delete skill');
       }
     } catch (error) {
       console.error('Error deleting skill:', error);
-      alert('Failed to delete skill');
+      alert('Failed to delete skill: ' + error.message);
     }
   };
 

@@ -3,13 +3,23 @@ import connectDB from '@/lib/mongodb';
 import Skill from '@/lib/models/Skill';
 import { withAdminAuth } from '@/lib/auth';
 
-export const PUT = withAdminAuth(async (request: NextRequest, context?: unknown): Promise<Response> => {
-  const id = (context as { params: { id: string } })?.params?.id;
+export const PUT = withAdminAuth(async (request: NextRequest, user: unknown, context?: unknown): Promise<Response> => {
   try {
     await connectDB();
     
+    // Extract ID from URL pathname
+    const url = new URL(request.url);
+    const pathSegments = url.pathname.split('/');
+    const id = pathSegments[pathSegments.length - 1];
+    
+    if (!id) {
+      return NextResponse.json(
+        { success: false, error: 'Skill ID is required' },
+        { status: 400 }
+      );
+    }
+    
     const body = await request.json();
-  // id is already extracted above
     
     const skill = await Skill.findByIdAndUpdate(id, body, { 
       new: true, 
@@ -33,12 +43,23 @@ export const PUT = withAdminAuth(async (request: NextRequest, context?: unknown)
   }
 });
 
-export const DELETE = withAdminAuth(async (request: NextRequest, context?: unknown): Promise<Response> => {
-  const id = (context as { params: { id: string } })?.params?.id;
+export const DELETE = withAdminAuth(async (request: NextRequest, user: unknown, context?: unknown): Promise<Response> => {
   try {
     await connectDB();
     
-  // id is already extracted above
+    // Extract ID from URL pathname
+    const url = new URL(request.url);
+    const pathSegments = url.pathname.split('/');
+    const id = pathSegments[pathSegments.length - 1];
+    
+    if (!id) {
+      return NextResponse.json(
+        { success: false, error: 'Skill ID is required' },
+        { status: 400 }
+      );
+    }
+    
+    console.log('Attempting to delete skill with ID:', id);
     
     const skill = await Skill.findByIdAndDelete(id);
     
@@ -49,6 +70,7 @@ export const DELETE = withAdminAuth(async (request: NextRequest, context?: unkno
       );
     }
     
+    console.log('Successfully deleted skill:', skill.name);
     return NextResponse.json({ success: true, message: 'Skill deleted successfully' });
   } catch (error) {
     console.error('Error deleting skill:', error);

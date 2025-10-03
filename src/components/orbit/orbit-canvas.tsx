@@ -243,58 +243,33 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
 
   const OrbitsView = (
     <div className={`relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 border border-purple-500/20 ${isMobile ? 'h-[400px]' : 'h-[700px]'}`}>
-      {/* Content boxes for mobile: move outside orbit area, stack vertically */}
+      {/* Mobile-specific project categories - positioned at bottom to avoid overlap */}
       {isMobile && (
-        <div className="flex flex-col items-center gap-2 absolute left-0 right-0 top-2 z-[40] px-2">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="border border-white/10 bg-black/40 backdrop-blur-md rounded-xl p-2 w-full max-w-[95vw] text-[11px] overflow-auto"
-          >
-            <div className="text-xs text-purple-200 mb-2 font-semibold">Project Categories</div>
-            <div className="space-y-2">
-              {[
-                { name: 'Startup Tech Development', color: 'from-red-400 to-red-600', key: 'Startup Tech Development' },
-                { name: 'Android/iOS Application', color: 'from-green-400 to-green-600', key: 'Android/iOS Application' },
-                { name: 'Data Engineering Solutions', color: 'from-yellow-400 to-yellow-600', key: 'Data Engineering Solutions' },
-                { name: 'IoT Project', color: 'from-cyan-400 to-cyan-600', key: 'IoT Project' },
-                { name: 'AI/ML/DL/Gen AI Projects', color: 'from-indigo-400 to-indigo-600', key: 'AI/ML/DL/Gen AI Projects' },
-                { name: 'Web Applications', color: 'from-blue-400 to-blue-600', key: 'Web' },
-                { name: 'UI/UX Design', color: 'from-purple-400 to-purple-600', key: 'UI/UX' },
-                { name: 'API Development', color: 'from-emerald-400 to-emerald-600', key: 'APIs' },
-                { name: 'Experiments', color: 'from-orange-400 to-orange-600', key: 'Experiments' },
-              ].map((c) => (
-                <div key={c.name} className="flex items-center gap-2 text-xs">
-                  <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${c.color}`} />
-                  <span className="text-white/80">{c.name}</span>
-                  <span className="text-purple-300 ml-auto">({filteredProjects.filter((p) => (p.category || '') === c.key).length})</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="border border-white/10 bg-black/40 backdrop-blur-md rounded-xl p-2 w-full max-w-[95vw] text-[11px] overflow-auto"
-          >
-            <div className="text-xs text-purple-200 mb-1 font-semibold">Navigation</div>
-            <div className="text-xs text-white/70 space-y-1">
-              <div>🪐 Hover planets to explore</div>
-              <div>🚀 Click to launch project</div>
-              <div>✨ Watch the cosmic dance</div>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="border border-white/10 bg-black/40 backdrop-blur-md rounded-xl px-2 py-1 w-full max-w-[95vw] text-[11px] overflow-auto"
-          >
-            <div className="text-center">
-              <div className="text-lg font-bold text-white">{filteredProjects.length}</div>
-              <div className="text-xs text-purple-200">Active Projects</div>
-            </div>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute bottom-2 left-2 right-2 border border-white/10 bg-black/40 backdrop-blur-md rounded-xl p-2 z-[20] text-[11px] max-h-[120px] overflow-y-auto"
+        >
+          <div className="text-xs text-purple-200 mb-2 font-semibold">Project Categories</div>
+          <div className="grid grid-cols-2 gap-1">
+            {[
+              { name: 'Startup Tech', color: 'from-red-400 to-red-600', key: 'Startup Tech Development' },
+              { name: 'Mobile Apps', color: 'from-green-400 to-green-600', key: 'Android/iOS Application' },
+              { name: 'Data Eng', color: 'from-yellow-400 to-yellow-600', key: 'Data Engineering Solutions' },
+              { name: 'IoT', color: 'from-cyan-400 to-cyan-600', key: 'IoT Project' },
+              { name: 'AI/ML', color: 'from-indigo-400 to-indigo-600', key: 'AI/ML/DL/Gen AI Projects' },
+              { name: 'Web', color: 'from-blue-400 to-blue-600', key: 'Web' },
+              { name: 'UI/UX', color: 'from-purple-400 to-purple-600', key: 'UI/UX' },
+              { name: 'APIs', color: 'from-emerald-400 to-emerald-600', key: 'APIs' },
+            ].map((c) => (
+              <div key={c.name} className="flex items-center gap-1 text-xs">
+                <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${c.color}`} />
+                <span className="text-white/80 truncate">{c.name}</span>
+                <span className="text-purple-300 text-[10px]">({filteredProjects.filter((p) => (p.category || '') === c.key).length})</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       )}
       {/* Background pulse */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
@@ -513,8 +488,8 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
                       {/* Click/hover target */}
                       <motion.button
                         type="button"
-                        className="relative block w-full h-full cursor-pointer rounded-full focus:outline-none z-[30]"
-                        style={{ zIndex: 30 }}
+                        className="relative block w-full h-full cursor-pointer rounded-full focus:outline-none z-[15]"
+                        style={{ zIndex: 15 }}
                         onClick={() => onProjectClick(project)}
                         onMouseEnter={() => setHoveredProject(project)}
                         onMouseLeave={() => setHoveredProject(null)}
@@ -585,7 +560,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[40]"
+            className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[20]"
           >
             <div className="text-xs text-purple-200 mb-3 font-semibold">Project Categories</div>
             <div className="space-y-2">
@@ -611,7 +586,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="absolute top-6 right-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[40]"
+            className="absolute top-6 right-6 bg-black/40 backdrop-blur-md rounded-xl p-4 border border-white/10 z-[20]"
           >
             <div className="text-xs text-purple-200 mb-2 font-semibold">Navigation</div>
             <div className="text-xs text-white/70 space-y-1">
@@ -620,16 +595,7 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
               <div>✨ Watch the cosmic dance</div>
             </div>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute top-6 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10 z-[40]"
-          >
-            <div className="text-center">
-              <div className="text-lg font-bold text-white">{filteredProjects.length}</div>
-              <div className="text-xs text-purple-200">Active Projects</div>
-            </div>
-          </motion.div>
+
         </>
       )}
 
@@ -637,24 +603,24 @@ export function OrbitCanvas({ onProjectClick }: OrbitCanvasProps) {
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
-        className={`absolute border border-white/10 bg-black/40 backdrop-blur-md rounded-xl ${isMobile ? 'top-2 right-1/2 translate-x-1/2 p-2 max-w-[90vw] w-[95vw] text-[11px]' : 'top-6 right-6 p-4'} overflow-auto`}
+        className={`absolute border border-white/10 bg-black/40 backdrop-blur-md rounded-xl ${isMobile ? 'top-2 right-2 p-2 max-w-[120px] text-[11px]' : 'top-6 right-6 p-4'} overflow-auto z-[20]`}
       >
         <div className="text-xs text-purple-200 mb-2 font-semibold">Navigation</div>
         <div className="text-xs text-white/70 space-y-1">
-          <div>🪐 Hover planets to explore</div>
-          <div>🚀 Click to launch project</div>
-          <div>✨ Watch the cosmic dance</div>
+          <div>🪐 Hover planets{!isMobile && ' to explore'}</div>
+          <div>🚀 Click to launch{!isMobile && ' project'}</div>
+          <div>✨ Watch{!isMobile && ' the cosmic'} dance</div>
         </div>
       </motion.div>
 
       {/* Project Count */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className={`absolute border border-white/10 bg-black/40 backdrop-blur-md rounded-xl ${isMobile ? 'top-2 left-1/2 -translate-x-1/2 px-2 py-1 text-[11px]' : 'top-6 left-1/2 -translate-x-1/2 px-4 py-2'} overflow-auto`}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className={`absolute border border-white/10 bg-black/40 backdrop-blur-md rounded-xl ${isMobile ? 'top-2 left-2 px-3 py-2 text-[11px]' : 'top-6 left-6 px-4 py-2'} overflow-auto z-[20]`}
       >
         <div className="text-center">
-          <div className="text-lg font-bold text-white">{filteredProjects.length}</div>
+          <div className={`${isMobile ? 'text-base' : 'text-lg'} font-bold text-white`}>{filteredProjects.length}</div>
           <div className="text-xs text-purple-200">Active Projects</div>
         </div>
       </motion.div>

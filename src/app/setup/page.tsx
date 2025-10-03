@@ -17,7 +17,7 @@ export default function SetupPage() {
       const response = await fetch('/api/seed', {
         method: 'POST',
       });
-      
+
       const result = await response.json();
       setSeedResult(result);
     } catch {
@@ -42,11 +42,11 @@ export default function SetupPage() {
             <Database className="w-4 h-4 mr-2" />
             Database Setup
           </div>
-          
+
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6 text-white">
             SkillVerse <span className="text-purple-400">Setup</span>
           </h1>
-          
+
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Initialize your portfolio database with sample projects, admin user, and initial data.
           </p>
@@ -63,7 +63,7 @@ export default function SetupPage() {
               <Database className="w-5 h-5 mr-2 text-purple-400" />
               Database Setup
             </h2>
-            
+
             <p className="text-gray-300 mb-6">
               Seed your MongoDB database with sample projects, admin user profile, and initial data.
             </p>
@@ -94,11 +94,10 @@ export default function SetupPage() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`mt-4 p-4 rounded-lg flex items-start ${
-                  seedResult.success 
-                    ? 'bg-green-900/50 border border-green-500/50' 
-                    : 'bg-red-900/50 border border-red-500/50'
-                }`}
+                className={`mt-4 p-4 rounded-lg flex items-start ${seedResult.success
+                  ? 'bg-green-900/50 border border-green-500/50'
+                  : 'bg-red-900/50 border border-red-500/50'
+                  }`}
               >
                 {seedResult.success ? (
                   <CheckCircle className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
@@ -126,7 +125,7 @@ export default function SetupPage() {
             <h2 className="text-xl font-semibold text-white mb-4">
               What gets created?
             </h2>
-            
+
             <div className="space-y-4 text-gray-300">
               <div>
                 <h3 className="font-medium text-white mb-2 flex items-center">
@@ -135,12 +134,12 @@ export default function SetupPage() {
                 </h3>
                 <p className="text-sm">Complete developer profile with stats, skills, and social links.</p>
               </div>
-              
+
               <div>
                 <h3 className="font-medium text-white mb-2">Sample Projects</h3>
                 <p className="text-sm">5 diverse projects across Web, UI/UX, APIs, and Experiments categories.</p>
               </div>
-              
+
               <div>
                 <h3 className="font-medium text-white mb-2">Database Collections</h3>
                 <ul className="text-sm space-y-1">
@@ -183,12 +182,12 @@ export default function SetupPage() {
           className="mt-8 text-center"
         >
           <div className="inline-flex gap-4">
-              <Link
-                href="/"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                View Portfolio
-              </Link>
+            <Link
+              href="/"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            >
+              View Portfolio
+            </Link>
             <a
               href="/admin/login"
               className="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors"

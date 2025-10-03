@@ -149,19 +149,19 @@ export default function AdminDashboard() {
   return (
     <ProtectedRoute>
       <AdminLayout>
-        <div className="space-y-8">
+        <div className="space-y-4">
           {/* Welcome Section */}
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <div className="mb-4">
+            <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
               Welcome back! 👋
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
+            <p className="text-gray-600 dark:text-gray-400 mt-1">
               Here&#39;s what&#39;s happening with your portfolio today.
             </p>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {statCards.map((card, index) => (
               <motion.div
                 key={card.title}
@@ -170,7 +170,7 @@ export default function AdminDashboard() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Link href={card.href}>
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow cursor-pointer group">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow cursor-pointer group">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
@@ -195,7 +195,7 @@ export default function AdminDashboard() {
           </div>
 
           {/* Recent Activity & Quick Actions */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {/* Recent Activity */}
             <div className="lg:col-span-2">
               <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
