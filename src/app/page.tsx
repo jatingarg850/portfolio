@@ -14,7 +14,6 @@ import {
   Globe,
   Shield,
   Clock,
-  Star,
   Play
 } from 'lucide-react';
 import { OrbitCanvas } from '@/components/orbit/orbit-canvas';
@@ -62,35 +61,7 @@ export default function HomePage() {
     { name: 'Docker', category: 'DevOps' }
   ];
 
-  const testimonials: Array<{
-    name: string;
-    role: string;
-    company: string;
-    quote: string;
-    rating: number;
-  }> = [
-    {
-      name: "Sarah Johnson",
-      role: "CTO",
-      company: "TechStart Inc",
-      quote: "Exceptional work quality and attention to detail. The project was delivered on time and exceeded our expectations.",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      role: "Product Manager",
-      company: "InnovateCorp",
-      quote: "Professional, reliable, and innovative solutions. Great communication throughout the entire project.",
-      rating: 5
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Founder",
-      company: "Digital Solutions",
-      quote: "Outstanding technical expertise and creative problem-solving. Highly recommend for any development project.",
-      rating: 5
-    }
-  ];
+
 
   return (
     <div className="min-h-screen">

@@ -51,3 +51,31 @@ export const UI_CONFIG = {
     '2xl': '1536px',
   },
 } as const;
+
+// Default skills data (fallback when API is unavailable)
+export const DEFAULT_SKILLS = [
+  // Frontend
+  { id: '1', _id: '1', name: 'React', category: 'Frontend', proficiency: 95, proof: { repos: [], projects: ['5+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '2', _id: '2', name: 'Next.js', category: 'Frontend', proficiency: 92, proof: { repos: [], projects: ['3+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '3', _id: '3', name: 'TypeScript', category: 'Frontend', proficiency: 88, proof: { repos: [], projects: ['4+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '4', _id: '4', name: 'Vue.js', category: 'Frontend', proficiency: 80, proof: { repos: [], projects: ['2+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '5', _id: '5', name: 'Tailwind CSS', category: 'Frontend', proficiency: 90, proof: { repos: [], projects: ['6+ projects'] }, position: { x: 0, y: 0 } },
+  
+  // Backend
+  { id: '6', _id: '6', name: 'Node.js', category: 'Backend', proficiency: 90, proof: { repos: [], projects: ['4+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '7', _id: '7', name: 'Python', category: 'Backend', proficiency: 85, proof: { repos: [], projects: ['3+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '8', _id: '8', name: 'Express.js', category: 'Backend', proficiency: 88, proof: { repos: [], projects: ['4+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '9', _id: '9', name: 'MongoDB', category: 'Backend', proficiency: 85, proof: { repos: [], projects: ['5+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '10', _id: '10', name: 'PostgreSQL', category: 'Backend', proficiency: 80, proof: { repos: [], projects: ['2+ projects'] }, position: { x: 0, y: 0 } },
+  
+  // Design
+  { id: '11', _id: '11', name: 'Figma', category: 'Design', proficiency: 85, proof: { repos: [], projects: ['10+ designs'] }, position: { x: 0, y: 0 } },
+  { id: '12', _id: '12', name: 'Adobe XD', category: 'Design', proficiency: 75, proof: { repos: [], projects: ['5+ designs'] }, position: { x: 0, y: 0 } },
+  { id: '13', _id: '13', name: 'UI/UX Design', category: 'Design', proficiency: 88, proof: { repos: [], projects: ['8+ projects'] }, position: { x: 0, y: 0 } },
+  
+  // Tools
+  { id: '14', _id: '14', name: 'Git', category: 'Tools', proficiency: 92, proof: { repos: [], projects: ['All projects'] }, position: { x: 0, y: 0 } },
+  { id: '15', _id: '15', name: 'Docker', category: 'Tools', proficiency: 80, proof: { repos: [], projects: ['3+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '16', _id: '16', name: 'AWS', category: 'Tools', proficiency: 75, proof: { repos: [], projects: ['2+ projects'] }, position: { x: 0, y: 0 } },
+  { id: '17', _id: '17', name: 'Vercel', category: 'Tools', proficiency: 90, proof: { repos: [], projects: ['5+ deployments'] }, position: { x: 0, y: 0 } },
+];
